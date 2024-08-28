@@ -10,9 +10,9 @@ input_file_path = get_data_path(__file__, 'combined_data.csv')
 timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
 
 # Define the directory and the file name
-output_dir = os.path.join(os.getcwd(), 'cleaned')  # Creates a path relative to the current working directory
+output_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  
 output_file_name = f'cleaned_data-{timestamp}.csv'
-output_file_path = os.path.join(os.getcwd(), 'cleaned',output_file_name)
+output_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)
 
 # Load the combined market data
 df = pd.read_csv(input_file_path)
