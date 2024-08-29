@@ -1,59 +1,44 @@
-import psycopg2
-import rpy2.robjects as robjects
-from rpy2.robjects import pandas2ri
-from rpy2.robjects.packages import importr
+# Load required libraries
+library(DBI)
+library(RMySQL)  # Assuming MySQL database, adjust if using a different database
+library(forecast)
 
-# Activate automatic conversion
-pandas2ri.activate() 
+# Database connection parameters
+db_host <- "your_host"
+db_name <- "your_database"
+db_user <- "your_username"
+db_password <- "your_password"
 
-# Import R packages
-forecast = importr('forecast')
+# Connect to the database
+con <- dbConnect(MySQL(), host = db_host, dbname = db_name, user = db_user, password = db_password)
 
-# Database connection details
-dbname = "nxmbers"
-user = "mxchinist"
-password = "foJzyn-miwhor-bavpo4"
-host = "nxmbers.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
-port = 5432
+# Fetch data from the database
+query <- "SELECT date, value FROM your_table ORDER BY date"
+data <- dbGetQuery(con, query)
 
-# Connect to the PostgreSQL database
-conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+# Close the database connection
+dbDisconnect(con)
 
-# Create a cursor object
-cur = conn.cursor()
-
-# Execute a query to fetch data
-query = "SELECT date, close_alpha FROM market_data_2024_08_28_090019"
-cur.execute(query)
-
-# Fetch all the rows from the result
-data = cur.fetchall()
-
-# Close the cursor and the connection
-cur.close()
-conn.close()
-
-# Convert the fetched data into a Pandas DataFrame
-import pandas as pd
-df = pd.DataFrame(data, columns=['date', 'close_alpha'])
-
-# Convert date column to datetime if needed
-df['date'] = pd.to_datetime(df['date'])
-
-# Convert Pandas DataFrame to R DataFrame
-r_df = pandas2ri.py2rpy(df)
-
-# Create time series in R
-r_ts_data = robjects.r('ts')(r_df['close_alpha'], frequency=12) 
+# Convert the data to a time series object
+# Assuming 'date' is in a format that can be converted to Date
+data$date <- as.Date(data$date)
+ts_data <- ts(data$value, frequency = 12)  # Adjust frequency if needed
 
 # Fit ARIMA model
-r_model = forecast.auto_arima(r_ts_data)
+arima_model <- auto.arima(ts_data)
 
-# Generate predictions
-r_predictions = forecast.forecast(r_model, h=12)
+# Print model summary
+summary(arima_model)
 
-# Convert predictions back to Python
-predictions = pandas2ri.rpy2py(r_predictions)
+# Plot the original data and fitted values
+plot(ts_data, main = "Original Data and ARIMA Fit")
+lines(fitted(arima_model), col = "red")
 
-# Print or further process the predictions in Python
-print(predictions)
+# Forecast future values (e.g., next 12 periods)
+forecast_result <- forecast(arima_model, h = 12)
+
+# Plot the forecast
+plot(forecast_result, main = "ARIMA Forecast")
+
+# Print forecast values
+print(forecast_result)
