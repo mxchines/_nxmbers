@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Fetcher</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        label { display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 5px; margin-top: 5px; }
+        button { margin-top: 20px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Stock Data Fetcher</h1>
+    <form id="stockForm">
+        <label for="ticker">Stock Ticker:</label>
+        <input type="text" id="ticker" name="ticker" required>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+
+        <label for="interval">Interval:</label>
+        <select id="interval" name="interval">
+            <option value="1d">Daily</option>
+            <option value="1h">Hourly</option>
+        </select>
+
+        <label for="apiKey">API Key:</label>
+        <input type="text" id="apiKey" name="apiKey" required>
+
+        <button type="submit">Fetch Data</button>
+    </form>
+
+    <script>
+        document.getElementById('stockForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // In a real application, you would send this data to your backend
+            console.log('Form data:', data);
+            alert('Data submitted. Check the console for details.');
+
+            // Here you would typically make an API call to your backend
+            // fetch('/api/update-config', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(data),
+            // })
+            // .then(response => response.json())
+            // .then(data => console.log('Success:', data))
+            // .catch((error) => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
