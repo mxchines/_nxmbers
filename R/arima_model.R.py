@@ -1,80 +1,115 @@
-import psycopg2
-import rpy2.robjects as robjects
-from rpy2.robjects import pandas2ri
+import rpy2.robjects as ro
 from rpy2.robjects.packages import importr
+from rpy2.robjects import pandas2ri
+from rpy2.robjects.conversion import localconverter
 import pandas as pd
-from tqdm import tqdm
-import time
+import numpy as np
+import matplotlib.pyplot as plt
+import logging
 
-# Activate automatic conversion
-pandas2ri.activate() 
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Import R packages
+# Load R libraries
+base = importr('base')
+DBI = importr('DBI')
+RPostgres = importr('RPostgres')
 forecast = importr('forecast')
+stats = importr('stats')
 
-print("Starting ARIMA model script...")
+# Database connection parameters
+db_host = "numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
+db_name = "nxmbers"
+db_user = "mxchinist"
+db_password = "foJzyn-miwhor-bavpo4"
+db_port = 5432
 
-# Database connection details
-dbname = "nxmbers"
-user = "mxchinist"
-password = "foJzyn-miwhor-bavpo4"
-host = "nxmbers.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
-port = 5432
+try:
+    # Connect to the database
+    logging.info("Connecting to the database...")
+    con = DBI.dbConnect(RPostgres.Postgres(),
+                        host=db_host,
+                        dbname=db_name,
+                        user=db_user,
+                        password=db_password,
+                        port=db_port)
 
-print("Connecting to the database...")
-# Connect to the PostgreSQL database
-conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+    # Fetch data from the database 
+    logging.info("Fetching data from the database...")
+    query = "SELECT date, close_alpha FROM market_data_2024_08_28_090019 ORDER BY date"
+    data = DBI.dbGetQuery(con, query)
 
-# Create a cursor object
-cur = conn.cursor()
+    # Close the database connection
+    DBI.dbDisconnect(con)
 
-print("Executing query to fetch data...")
-# Execute a query to fetch data
-query = "SELECT date, close_alpha FROM market_data_2024_08_28_090019"
-cur.execute(query)
+    # Check if data is empty
+    if data.nrow == 0:
+        raise ValueError("No data returned from the database query.")
 
-print("Fetching all rows from the result...")
-# Fetch all the rows from the result
-data = cur.fetchall()
+    # Convert R dataframe to pandas dataframe
+    logging.info("Converting data to pandas dataframe...")
+    with localconverter(ro.default_converter + pandas2ri.converter):
+        pdf = ro.conversion.rpy2py(data)
 
-# Close the cursor and the connection
-cur.close()
-conn.close()
-print("Database connection closed.")
+    # Convert 'date' column to datetime without timezone
+    pdf['date'] = pd.to_datetime(pdf['date']).dt.tz_localize(None)
 
-print("Converting fetched data into a Pandas DataFrame...")
-# Convert the fetched data into a Pandas DataFrame
-df = pd.DataFrame(data, columns=['date', 'close_alpha'])
+    # Ensure 'close_alpha' is numeric
+    pdf['close_alpha'] = pd.to_numeric(pdf['close_alpha'], errors='coerce')
 
-# Convert date column to datetime if needed
-df['date'] = pd.to_datetime(df['date'])
+    # Remove any rows with NaN values
+    pdf = pdf.dropna()
 
-print("Converting Pandas DataFrame to R DataFrame...")
-# Convert Pandas DataFrame to R DataFrame
-r_df = pandas2ri.py2rpy(df)
+    # Log data info
+    logging.info(f"Data shape: {pdf.shape}")
+    logging.info(f"Data types:\n{pdf.dtypes}")
+    logging.info(f"Data head:\n{pdf.head()}")
 
-print("Creating time series in R...")
-# Create time series in R
-r_ts_data = robjects.r('ts')(r_df['close_alpha'], frequency=12) 
+    # Convert back to R dataframe
+    with localconverter(ro.default_converter + pandas2ri.converter):
+        data = ro.conversion.py2rpy(pdf)
 
-print("Fitting ARIMA model...")
-# Fit ARIMA model
-r_model = forecast.auto_arima(r_ts_data)
+    # Convert data to time series
+    ts_data = stats.ts(data.rx2('close_alpha'), frequency=12, start=ro.FloatVector([pdf['date'].dt.year.min(), 1]))
 
-print("Generating predictions...")
-# Generate predictions
-r_predictions = forecast.forecast(r_model, h=12)
+    # Fit ARIMA model
+    logging.info("Fitting ARIMA model...")
+    arima_model = forecast.auto_arima(ts_data, stepwise=True, approximation=False)
 
-print("Converting predictions back to Python...")
-# Convert predictions back to Python
-predictions = pandas2ri.rpy2py(r_predictions)
+    # Print model summary
+    logging.info("ARIMA Model Summary:")
+    print(base.summary(arima_model))
 
-print("Processing predictions...")
-# Simulating some processing time with a loading bar
-for _ in tqdm(range(10), desc="Processing predictions"):
-    time.sleep(0.5)  # Simulating some work being done
+    # Generate forecasts
+    logging.info("Generating forecasts...")
+    forecasts = ro.r('forecast')(arima_model, h=12)
 
-print("\nPredictions:")
-print(predictions)
+    # Extract forecast data
+    forecast_mean = ro.r('as.numeric')(forecasts.rx2('mean'))
+    forecast_lower = ro.r('as.numeric')(forecasts.rx2('lower')[0])
+    forecast_upper = ro.r('as.numeric')(forecasts.rx2('upper')[0])
 
-print("Script execution completed.")
+    # Plot the forecasts
+    logging.info("Plotting forecasts...")
+    plt.figure(figsize=(12, 6))
+    plt.plot(pdf['date'], pdf['close_alpha'], label='Actual')
+    forecast_dates = pd.date_range(start=pdf['date'].iloc[-1], periods=13, freq='M')[1:]
+    plt.plot(forecast_dates, forecast_mean, label='Forecast', color='red')
+    plt.fill_between(forecast_dates, forecast_lower, forecast_upper, color='red', alpha=0.2)
+    plt.title('ARIMA Forecast')
+    plt.xlabel('Date')
+    plt.ylabel('Close Alpha')
+    plt.legend()
+    plt.savefig('../nxmbers/data/plots/png/forecast_plot.png')
+
+    logging.info("Analysis complete! Plot saved as forecast_plot.png")
+
+except Exception as e:
+    logging.error(f"An error occurred: {str(e)}")
+    raise
+
+finally:
+    # Ensure database connection is closed if it was opened
+    if 'con' in locals() and con is not None:
+        DBI.dbDisconnect(con)
+        logging.info("Database connection closed.")
