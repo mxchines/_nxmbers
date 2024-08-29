@@ -1,40 +1,21 @@
 import rpy2.robjects as ro
-from rpy2.robjects import pandas2ri
-import pandas as pd
-
-# Assuming 'data' is your R dataframe
-# Convert R dataframe to pandas dataframe
-pandas2ri.activate()
-pdf = pandas2ri.rpy2py(data)
-
-# Convert 'date' column to datetime
-pdf['date'] = pd.to_datetime(pdf['date'])
-
-# Convert back to R dataframe
-data = pandas2ri.py2rpy(pdf)
-
-# Now proceed with the rest of your script
-ts_data = ro.r.ts(data.rx2('close_alpha'), frequency=12)
-
-# Rest of your ARIMA modeling code...
-import rpy2.robjects as ro
 from rpy2.robjects.packages import importr
+from rpy2.robjects import pandas2ri
+from rpy2.robjects.conversion import localconverter
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Load R libraries
 base = importr('base')
 DBI = importr('DBI')
 RPostgres = importr('RPostgres')
 forecast = importr('forecast')
-grdevices = importr('grDevices')
-ggplot2 = importr('ggplot2')
-
-# For progress bar
-from tqdm import tqdm
-
-# For plotting
-import matplotlib.pyplot as plt
-from rpy2.robjects.lib import ggplot2
-from rpy2.robjects import pandas2ri
+stats = importr('stats')
 
 # Database connection parameters
 db_host = "numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
@@ -43,70 +24,92 @@ db_user = "mxchinist"
 db_password = "foJzyn-miwhor-bavpo4"
 db_port = 5432
 
-# Connect to the database
-con = DBI.dbConnect(RPostgres.Postgres(),
-                    host=db_host,
-                    dbname=db_name,
-                    user=db_user,
-                    password=db_password,
-                    port=db_port)
+try:
+    # Connect to the database
+    logging.info("Connecting to the database...")
+    con = DBI.dbConnect(RPostgres.Postgres(),
+                        host=db_host,
+                        dbname=db_name,
+                        user=db_user,
+                        password=db_password,
+                        port=db_port)
 
-# Fetch data from the database 
-query = "SELECT date, close_alpha FROM market_data_2024_08_28_090019 ORDER BY date"
-data = DBI.dbGetQuery(con, query)
+    # Fetch data from the database 
+    logging.info("Fetching data from the database...")
+    query = "SELECT date, close_alpha FROM market_data_2024_08_28_090019 ORDER BY date"
+    data = DBI.dbGetQuery(con, query)
 
-# Close the database connection
-DBI.dbDisconnect(con)
+    # Close the database connection
+    DBI.dbDisconnect(con)
 
-# Inspect the data
-print(data)
+    # Check if data is empty
+    if data.nrow == 0:
+        raise ValueError("No data returned from the database query.")
 
-# Check if data is empty
-if data.nrow == 0:
-    raise ValueError("No data returned from the database query.")
+    # Convert R dataframe to pandas dataframe
+    logging.info("Converting data to pandas dataframe...")
+    with localconverter(ro.default_converter + pandas2ri.converter):
+        pdf = ro.conversion.rpy2py(data)
 
-# Convert 'date' column to R Date format (corrected assignment)
-data.rx2['date'] = ro.r('`[[<-`')(data, 'date', value = ro.r('as.Date')(data.rx2['date'], origin = '1970-01-01')) 
+    # Convert 'date' column to datetime without timezone
+    pdf['date'] = pd.to_datetime(pdf['date']).dt.tz_localize(None)
 
-# Handle missing values and convert 'close_alpha' to numeric
-data = ro.r('na.omit')(data)
-data.rx2['close_alpha'] = ro.r('as.numeric')(data.rx2['close_alpha'])
+    # Ensure 'close_alpha' is numeric
+    pdf['close_alpha'] = pd.to_numeric(pdf['close_alpha'], errors='coerce')
 
-# Convert data to time series (adjust frequency if not monthly)
-ts_data = ro.r.ts(data.rx2('close_alpha'), frequency=12)
+    # Remove any rows with NaN values
+    pdf = pdf.dropna()
 
-# Handle missing values and convert to numeric 
-data = ro.r('na.omit')(data)
-data.rx2['close_alpha'] = ro.r('`[[<-`')(data, 'close_alpha', value=ro.r('as.numeric')(data.rx2['close_alpha'])) 
+    # Log data info
+    logging.info(f"Data shape: {pdf.shape}")
+    logging.info(f"Data types:\n{pdf.dtypes}")
+    logging.info(f"Data head:\n{pdf.head()}")
 
-# Convert data to time series (adjust frequency if not monthly)
-ts_data = ro.r.ts(data.rx2('close_alpha'), frequency=12) 
+    # Convert back to R dataframe
+    with localconverter(ro.default_converter + pandas2ri.converter):
+        data = ro.conversion.py2rpy(pdf)
 
-# Create a tqdm progress bar
-pb = tqdm(total=100)
+    # Convert data to time series
+    ts_data = stats.ts(data.rx2('close_alpha'), frequency=12, start=ro.FloatVector([pdf['date'].dt.year.min(), 1]))
 
-# Function to update progress bar
-def update_progress(value):
-    pb.update(int(value / 100 * pb.total))
+    # Fit ARIMA model
+    logging.info("Fitting ARIMA model...")
+    arima_model = forecast.auto_arima(ts_data, stepwise=True, approximation=False)
 
-# Fit ARIMA model with progress updates
-arima_model = forecast.auto_arima(ts_data, stepwise=False, approximation=False,
-                                 parallel=True, num_cores=2,
-                                 callback=update_progress)
+    # Print model summary
+    logging.info("ARIMA Model Summary:")
+    print(base.summary(arima_model))
 
-# Print model summary
-print(base.summary(arima_model))
+    # Generate forecasts
+    logging.info("Generating forecasts...")
+    forecasts = ro.r('forecast')(arima_model, h=12)
 
-# Generate forecasts
-forecasts = forecast.forecast(arima_model, h=12)
+    # Extract forecast data
+    forecast_mean = ro.r('as.numeric')(forecasts.rx2('mean'))
+    forecast_lower = ro.r('as.numeric')(forecasts.rx2('lower')[0])
+    forecast_upper = ro.r('as.numeric')(forecasts.rx2('upper')[0])
 
-# Close the progress bar
-pb.close()
+    # Plot the forecasts
+    logging.info("Plotting forecasts...")
+    plt.figure(figsize=(12, 6))
+    plt.plot(pdf['date'], pdf['close_alpha'], label='Actual')
+    forecast_dates = pd.date_range(start=pdf['date'].iloc[-1], periods=13, freq='M')[1:]
+    plt.plot(forecast_dates, forecast_mean, label='Forecast', color='red')
+    plt.fill_between(forecast_dates, forecast_lower, forecast_upper, color='red', alpha=0.2)
+    plt.title('ARIMA Forecast')
+    plt.xlabel('Date')
+    plt.ylabel('Close Alpha')
+    plt.legend()
+    plt.savefig('forecast_plot.png')
 
-# Plot the forecasts using matplotlib
-grdevices.png(file="forecast_plot.png", width=800, height=600)
-p = ggplot2.autoplot(forecasts)
-p.plot()
-grdevices.dev_off()
+    logging.info("Analysis complete! Plot saved as forecast_plot.png")
 
-print("Analysis complete! Plot saved as forecast_plot.png")
+except Exception as e:
+    logging.error(f"An error occurred: {str(e)}")
+    raise
+
+finally:
+    # Ensure database connection is closed if it was opened
+    if 'con' in locals() and con is not None:
+        DBI.dbDisconnect(con)
+        logging.info("Database connection closed.")
