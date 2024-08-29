@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+import os
 import config
 
 app = Flask(__name__)
@@ -16,7 +17,7 @@ def update_config():
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return send_from_directory('.', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

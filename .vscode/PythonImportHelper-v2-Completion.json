@@ -1,0 +1,922 @@
+[
+    {
+        "label": "rpy2.robjects",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "rpy2.robjects",
+        "description": "rpy2.robjects",
+        "detail": "rpy2.robjects",
+        "documentation": {}
+    },
+    {
+        "label": "pandas2ri",
+        "importPath": "rpy2.robjects",
+        "description": "rpy2.robjects",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects",
+        "documentation": {}
+    },
+    {
+        "label": "importr",
+        "importPath": "rpy2.robjects.packages",
+        "description": "rpy2.robjects.packages",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects.packages",
+        "documentation": {}
+    },
+    {
+        "label": "localconverter",
+        "importPath": "rpy2.robjects.conversion",
+        "description": "rpy2.robjects.conversion",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects.conversion",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "yfinance",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yfinance",
+        "description": "yfinance",
+        "detail": "yfinance",
+        "documentation": {}
+    },
+    {
+        "label": "TimeSeries",
+        "importPath": "alpha_vantage.timeseries",
+        "description": "alpha_vantage.timeseries",
+        "isExtraImport": true,
+        "detail": "alpha_vantage.timeseries",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "psycopg2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "sql",
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "isExtraImport": true,
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "send_from_directory",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "config",
+        "description": "config",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "isExtraImport": true,
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "data_ingestion.data_combiner",
+        "description": "data_ingestion.data_combiner",
+        "isExtraImport": true,
+        "detail": "data_ingestion.data_combiner",
+        "documentation": {}
+    },
+    {
+        "label": "clean_data",
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "isExtraImport": true,
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "run_r_models",
+        "importPath": "prediction_model.r_model_executor",
+        "description": "prediction_model.r_model_executor",
+        "isExtraImport": true,
+        "detail": "prediction_model.r_model_executor",
+        "documentation": {}
+    },
+    {
+        "label": "save_results",
+        "importPath": "results_storage.results_saver",
+        "description": "results_storage.results_saver",
+        "isExtraImport": true,
+        "detail": "results_storage.results_saver",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "base = importr('base')\nDBI = importr('DBI')\nRPostgres = importr('RPostgres')\nforecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "DBI",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "DBI = importr('DBI')\nRPostgres = importr('RPostgres')\nforecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "RPostgres",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "RPostgres = importr('RPostgres')\nforecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "forecast",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "forecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "stats",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "stats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_host",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_name",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_user",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_password",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,\n                        password=db_password,",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_port",
+        "kind": 5,
+        "importPath": "R.arima_model.R",
+        "description": "R.arima_model.R",
+        "peekOfCode": "db_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,\n                        password=db_password,\n                        port=db_port)",
+        "detail": "R.arima_model.R",
+        "documentation": {}
+    },
+    {
+        "label": "kalman_filter",
+        "kind": 2,
+        "importPath": "R.kalman_filter.R",
+        "description": "R.kalman_filter.R",
+        "peekOfCode": "def kalman_filter(data, initial_state, process_noise_variance, measurement_noise_variance):\n    \"\"\"\n    Implements a basic Kalman filter for time series data.\n    Args:\n        data: A 1D numpy array containing the time series data.\n        initial_state: A tuple (x0, P0) representing the initial state estimate and its covariance.\n        process_noise_variance: The variance of the process noise (Q).\n        measurement_noise_variance: The variance of the measurement noise (R).\n    Returns:\n        filtered_state_means: A 1D numpy array containing the filtered state estimates.",
+        "detail": "R.kalman_filter.R",
+        "documentation": {}
+    },
+    {
+        "label": "initial_state",
+        "kind": 5,
+        "importPath": "R.kalman_filter.R",
+        "description": "R.kalman_filter.R",
+        "peekOfCode": "initial_state = (pdf['close_alpha'].iloc[0], 1.0)  # Initial state estimate and covariance\nprocess_noise_variance = 0.1  # Adjust based on your understanding of the process\nmeasurement_noise_variance = 1.0  # Adjust based on your understanding of the measurement noise\nfiltered_state_means, filtered_state_covariances = kalman_filter(\n    pdf['close_alpha'].values, initial_state, process_noise_variance, measurement_noise_variance\n)\n# Plot the filtered results\nlogging.info(\"Plotting Kalman filtered results...\")\nplt.figure(figsize=(12, 6))\nplt.plot(pdf['date'], pdf['close_alpha'], label='Actual')",
+        "detail": "R.kalman_filter.R",
+        "documentation": {}
+    },
+    {
+        "label": "process_noise_variance",
+        "kind": 5,
+        "importPath": "R.kalman_filter.R",
+        "description": "R.kalman_filter.R",
+        "peekOfCode": "process_noise_variance = 0.1  # Adjust based on your understanding of the process\nmeasurement_noise_variance = 1.0  # Adjust based on your understanding of the measurement noise\nfiltered_state_means, filtered_state_covariances = kalman_filter(\n    pdf['close_alpha'].values, initial_state, process_noise_variance, measurement_noise_variance\n)\n# Plot the filtered results\nlogging.info(\"Plotting Kalman filtered results...\")\nplt.figure(figsize=(12, 6))\nplt.plot(pdf['date'], pdf['close_alpha'], label='Actual')\nplt.plot(pdf['date'], filtered_state_means, label='Kalman Filtered', color='green')",
+        "detail": "R.kalman_filter.R",
+        "documentation": {}
+    },
+    {
+        "label": "measurement_noise_variance",
+        "kind": 5,
+        "importPath": "R.kalman_filter.R",
+        "description": "R.kalman_filter.R",
+        "peekOfCode": "measurement_noise_variance = 1.0  # Adjust based on your understanding of the measurement noise\nfiltered_state_means, filtered_state_covariances = kalman_filter(\n    pdf['close_alpha'].values, initial_state, process_noise_variance, measurement_noise_variance\n)\n# Plot the filtered results\nlogging.info(\"Plotting Kalman filtered results...\")\nplt.figure(figsize=(12, 6))\nplt.plot(pdf['date'], pdf['close_alpha'], label='Actual')\nplt.plot(pdf['date'], filtered_state_means, label='Kalman Filtered', color='green')\nplt.title('Kalman Filter Results')",
+        "detail": "R.kalman_filter.R",
+        "documentation": {}
+    },
+    {
+        "label": "input_file_path",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "input_file_path = get_data_path(__file__, 'combined_data.csv')\n# Generate the timestamp\ntimestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n# Define the directory and the file name\noutput_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \noutput_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "timestamp",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n# Define the directory and the file name\noutput_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \noutput_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "output_dir",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "output_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \noutput_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "output_file_name",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "output_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "output_file_path",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "output_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "df = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values\n# df = df.dropna()\n# Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "df.columns",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "df.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values\n# df = df.dropna()\n# Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)\n# df = df.fillna(0)  # Example to fill numeric columns with 0\n# df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "peekOfCode": "df = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values\n# df = df.dropna()\n# Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)\n# df = df.fillna(0)  # Example to fill numeric columns with 0\n# df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'\n# Option 3: Fill missing values with the mean/median/mode for numeric columns\n# df = df.fillna(df.mean())  # Fill with mean",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "get_project_path",
+        "kind": 2,
+        "importPath": "data_cleaning.path_utility",
+        "description": "data_cleaning.path_utility",
+        "peekOfCode": "def get_project_path(file_path):\n    \"\"\"\n    Get the project path based on the current file's location.\n    :param file_path: The __file__ variable of the current script\n    :return: Path object pointing to the project root (nxmbers folder)\n    \"\"\"\n    current_file = Path(file_path).resolve()\n    project_root = current_file.parent\n    while project_root.name != 'nxmbers':\n        project_root = project_root.parent",
+        "detail": "data_cleaning.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "kind": 2,
+        "importPath": "data_cleaning.path_utility",
+        "description": "data_cleaning.path_utility",
+        "peekOfCode": "def get_data_path(file_path, filename):\n    \"\"\"\n    Get the full path for a data file within the project.\n    :param file_path: The __file__ variable of the current script\n    :param filename: Name of the file to be saved/loaded\n    :return: Full path to the data file\n    \"\"\"\n    project_root = get_project_path(file_path)\n    data_dir = project_root / 'nxmbers' / 'data'\n    data_dir.mkdir(parents=True, exist_ok=True)",
+        "detail": "data_cleaning.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "combine_data",
+        "kind": 2,
+        "importPath": "data_ingestion.data_combiner",
+        "description": "data_ingestion.data_combiner",
+        "peekOfCode": "def combine_data(yahoo_data, alpha_data, twelve_data):\n    \"\"\"\n    Combine Yahoo Finance, Alpha Vantage, and Twelve Data data.\n    \"\"\"\n    # Reset index for all dataframes\n    yahoo_data = yahoo_data.reset_index()\n    alpha_data = alpha_data.reset_index()\n    twelve_data = twelve_data.reset_index()\n    # Ensure consistent date column naming\n    yahoo_data = yahoo_data.rename(columns={'Date': 'date'})",
+        "detail": "data_ingestion.data_combiner",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "data_ingestion.data_combiner",
+        "description": "data_ingestion.data_combiner",
+        "peekOfCode": "def main(ticker):\n    yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')\n    alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')\n    twelve_csv_path = get_data_path(__file__, f'{ticker}_twelve_data.csv')\n    yahoo_data = pd.read_csv(yahoo_csv_path, index_col=0, parse_dates=True)\n    alpha_data = pd.read_csv(alpha_csv_path, index_col=0, parse_dates=True)\n    twelve_data = pd.read_csv(twelve_csv_path, index_col=0, parse_dates=True)\n    combined_data = combine_data(yahoo_data, alpha_data, twelve_data)\n    combined_csv_path = get_data_path(__file__, f'{ticker}_combined_data.csv')\n    combined_data.to_csv(combined_csv_path, index=False)",
+        "detail": "data_ingestion.data_combiner",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_yahoo_finance_data",
+        "kind": 2,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "def fetch_yahoo_finance_data(ticker, start_date, end_date, interval='1d'):\n    \"\"\"\n    Fetch historical market data from Yahoo Finance.\n    \"\"\"\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    return data\ndef fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"\n    Fetch historical market data from Alpha Vantage.\n    \"\"\"",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_alpha_vantage_data",
+        "kind": 2,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "def fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"\n    Fetch historical market data from Alpha Vantage.\n    \"\"\"\n    ts = TimeSeries(key=ALPHA_VANTAGE_API_KEY, output_format='pandas')\n    if interval == 'daily':\n        data, meta_data = ts.get_daily(symbol=ticker, outputsize='full')\n    elif interval == '60min':\n        data, meta_data = ts.get_intraday(symbol=ticker, interval='60min', outputsize='full')\n    else:",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_twelve_data",
+        "kind": 2,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "def fetch_twelve_data(ticker, start_date, end_date, interval='1day'):\n    \"\"\"\n    Fetch historical market data from Twelve Data.\n    \"\"\"\n    url = f\"https://api.twelvedata.com/time_series\"\n    params = {\n        \"symbol\": ticker,\n        \"interval\": interval,\n        \"start_date\": start_date,\n        \"end_date\": end_date,",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "def main(ticker, start_date, end_date, interval='1d'):\n    # Fetch data from all three sources\n    yahoo_data = fetch_yahoo_finance_data(ticker, start_date, end_date, interval)\n    alpha_data = fetch_alpha_vantage_data(ticker, 'daily')\n    twelve_data = fetch_twelve_data(ticker, start_date, end_date)\n    # Save individual datasets\n    yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')\n    alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')\n    twelve_csv_path = get_data_path(__file__, f'{ticker}_twelve_data.csv')\n    yahoo_data.to_csv(yahoo_csv_path)",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "ALPHA_VANTAGE_API_KEY",
+        "kind": 5,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\ndef fetch_yahoo_finance_data(ticker, start_date, end_date, interval='1d'):\n    \"\"\"\n    Fetch historical market data from Yahoo Finance.\n    \"\"\"\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    return data\ndef fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "TWELVE_DATA_API_KEY",
+        "kind": 5,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "TWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\ndef fetch_yahoo_finance_data(ticker, start_date, end_date, interval='1d'):\n    \"\"\"\n    Fetch historical market data from Yahoo Finance.\n    \"\"\"\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    return data\ndef fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"\n    Fetch historical market data from Alpha Vantage.",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "get_project_path",
+        "kind": 2,
+        "importPath": "data_ingestion.path_utility",
+        "description": "data_ingestion.path_utility",
+        "peekOfCode": "def get_project_path(file_path):\n    \"\"\"\n    Get the project path based on the current file's location.\n    :param file_path: The __file__ variable of the current script\n    :return: Path object pointing to the project root (nxmbers folder)\n    \"\"\"\n    current_file = Path(file_path).resolve()\n    project_root = current_file.parent\n    while project_root.name != 'nxmbers':\n        project_root = project_root.parent",
+        "detail": "data_ingestion.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "kind": 2,
+        "importPath": "data_ingestion.path_utility",
+        "description": "data_ingestion.path_utility",
+        "peekOfCode": "def get_data_path(file_path, filename):\n    \"\"\"\n    Get the full path for a data file within the project.\n    :param file_path: The __file__ variable of the current script\n    :param filename: Name of the file to be saved/loaded\n    :return: Full path to the data file\n    \"\"\"\n    project_root = get_project_path(file_path)\n    data_dir = project_root / 'nxmbers' / 'data'\n    data_dir.mkdir(parents=True, exist_ok=True)",
+        "detail": "data_ingestion.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_project_path",
+        "kind": 2,
+        "importPath": "data_storage.path_utility",
+        "description": "data_storage.path_utility",
+        "peekOfCode": "def get_project_path(file_path):\n    \"\"\"\n    Get the project path based on the current file's location.\n    :param file_path: The __file__ variable of the current script\n    :return: Path object pointing to the project root (nxmbers folder)\n    \"\"\"\n    current_file = Path(file_path).resolve()\n    project_root = current_file.parent\n    while project_root.name != 'nxmbers':\n        project_root = project_root.parent",
+        "detail": "data_storage.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "kind": 2,
+        "importPath": "data_storage.path_utility",
+        "description": "data_storage.path_utility",
+        "peekOfCode": "def get_data_path(file_path, filename):\n    \"\"\"\n    Get the full path for a data file within the project.\n    :param file_path: The __file__ variable of the current script\n    :param filename: Name of the file to be saved/loaded\n    :return: Full path to the data file\n    \"\"\"\n    project_root = get_project_path(file_path)\n    data_dir = project_root / 'nxmbers' / 'data'\n    data_dir.mkdir(parents=True, exist_ok=True)",
+        "detail": "data_storage.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "create_table_name",
+        "kind": 2,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "def create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',\n        'datetime64[ns]': 'TIMESTAMP'",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "get_column_types",
+        "kind": 2,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "def get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',\n        'datetime64[ns]': 'TIMESTAMP'\n    }\n    return {col: type_mapping.get(str(df[col].dtype), 'TEXT') for col in df.columns}\ndef create_table(conn, cursor, table_name, column_types):",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "create_table",
+        "kind": 2,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "def create_table(conn, cursor, table_name, column_types):\n    \"\"\"Create a new table in the database.\"\"\"\n    columns = [\n        sql.SQL(\"{} {}\").format(\n            sql.Identifier(col),\n            sql.SQL(col_type)\n        ) for col, col_type in column_types.items()\n    ]\n    create_table_query = sql.SQL(\"CREATE TABLE IF NOT EXISTS {} ({})\").format(\n        sql.Identifier(table_name),",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "insert_data",
+        "kind": 2,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )\n    cursor.executemany(insert_query, values)",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "def main():\n    # Read the CSV file\n    csv_path = os.path.join(os.getcwd(),  '..', 'nxmbers', 'data', 'cleaned', 'cleaned_data-20240828-085813.csv')  \n    df = pd.read_csv(csv_path)\n    # Ensure 'date' column is datetime\n    df['date'] = pd.to_datetime(df['date'])\n    # Connect to the database\n    conn = psycopg2.connect(\n        host=DB_HOST,\n        database=DB_NAME,",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "DB_HOST",
+        "kind": 5,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "DB_HOST = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\nDB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "DB_NAME",
+        "kind": 5,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "DB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "DB_USER",
+        "kind": 5,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "DB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "DB_PASS",
+        "kind": 5,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "DB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "DB_PORT",
+        "kind": 5,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "DB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "update_config",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_KEY = data.get('apiKey', config.DEFAULT_API_KEY)\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200\n@app.route('/')\ndef index():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def index():\n    return send_from_directory('.', 'index.html')\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_KEY = data.get('apiKey', config.DEFAULT_API_KEY)\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db_host",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "db_name",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "db_user",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "db_password",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "db_port",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "forecast_horizon",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_TICKER",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_START_DATE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_END_DATE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_INTERVAL",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "ALPHA_VANTAGE_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "TWELVE_DATA_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "TWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_TICKER",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "USER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_START_DATE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "USER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_END_DATE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "USER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_INTERVAL",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "USER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    # Fetch data\n    fetch_data(\n        ticker=config.USER_TICKER,\n        start_date=config.USER_START_DATE,\n        end_date=config.USER_END_DATE,\n        interval=config.USER_INTERVAL,\n        api_key=config.USER_API_KEY\n    )\n    # Combine data",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_project_path",
+        "kind": 2,
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "peekOfCode": "def get_project_path(file_path):\n    \"\"\"\n    Get the project path based on the current file's location.\n    :param file_path: The __file__ variable of the current script\n    :return: Path object pointing to the project root (nxmbers folder)\n    \"\"\"\n    current_file = Path(file_path).resolve()\n    project_root = current_file.parent\n    while project_root.name != 'nxmbers':\n        project_root = project_root.parent",
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "kind": 2,
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "peekOfCode": "def get_data_path(file_path, filename):\n    \"\"\"\n    Get the full path for a data file within the project.\n    :param file_path: The __file__ variable of the current script\n    :param filename: Name of the file to be saved/loaded\n    :return: Full path to the data file\n    \"\"\"\n    project_root = get_project_path(file_path)\n    data_dir = project_root / 'nxmbers' / 'data'\n    data_dir.mkdir(parents=True, exist_ok=True)",
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "print_directory_tree",
+        "kind": 2,
+        "importPath": "tree",
+        "description": "tree",
+        "peekOfCode": "def print_directory_tree(path, prefix=\"\"):\n    \"\"\"Recursively prints a directory tree, ignoring hidden files.\"\"\"\n    entries = [entry for entry in os.listdir(path) if not entry.startswith('.')]\n    entries.sort() \n    num_entries = len(entries)\n    for index, entry in enumerate(entries):\n        entry_path = os.path.join(path, entry)\n        if os.path.isdir(entry_path):\n            # Directory\n            connector = \"└── \" if index == num_entries - 1 else \"├── \"",
+        "detail": "tree",
+        "documentation": {}
+    },
+    {
+        "label": "start_path",
+        "kind": 5,
+        "importPath": "tree",
+        "description": "tree",
+        "peekOfCode": "start_path = \".\"\nprint_directory_tree(start_path)",
+        "detail": "tree",
+        "documentation": {}
+    }
+]

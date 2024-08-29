@@ -1,5 +1,6 @@
 import config
 from data_ingestion.data_fetcher import main as fetch_data
+from data_ingestion.data_combiner import main as combine_data
 from data_cleaning.data_cleaner import clean_data
 from prediction_model.r_model_executor import run_r_models
 from results_storage.results_saver import save_results
@@ -13,6 +14,9 @@ def main():
         interval=config.USER_INTERVAL,
         api_key=config.USER_API_KEY
     )
+
+    # Combine data
+    combine_data(config.USER_TICKER)
 
     # Clean data
     clean_data()
