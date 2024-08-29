@@ -708,7 +708,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_KEY = data.get('apiKey', config.DEFAULT_API_KEY)\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200\n@app.route('/')\ndef index():",
+        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200\n@app.route('/')\ndef index():",
         "detail": "app",
         "documentation": {}
     },
@@ -726,7 +726,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_KEY = data.get('apiKey', config.DEFAULT_API_KEY)\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200",
         "detail": "app",
         "documentation": {}
     },
@@ -744,7 +744,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'",
         "detail": "config",
         "documentation": {}
     },
@@ -753,7 +753,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'",
         "detail": "config",
         "documentation": {}
     },
@@ -762,7 +762,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'",
         "detail": "config",
         "documentation": {}
     },
@@ -771,7 +771,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys",
+        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'",
         "detail": "config",
         "documentation": {}
     },
@@ -780,7 +780,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"",
+        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys",
         "detail": "config",
         "documentation": {}
     },
@@ -789,7 +789,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
+        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER",
         "detail": "config",
         "documentation": {}
     },
@@ -798,7 +798,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_START_DATE = '2020-01-01'\nDEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
+        "peekOfCode": "DEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
         "detail": "config",
         "documentation": {}
     },
@@ -807,7 +807,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_END_DATE = '2023-01-01'\nDEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "DEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
         "detail": "config",
         "documentation": {}
     },
@@ -816,7 +816,16 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_INTERVAL = '1d'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "DEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_API_SOURCE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },
@@ -825,7 +834,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },
@@ -834,7 +843,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "TWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "TWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },
@@ -843,7 +852,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "USER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },
@@ -852,7 +861,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "USER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },
@@ -861,7 +870,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "USER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },
@@ -870,7 +879,16 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "USER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_API_SOURCE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "USER_API_SOURCE = DEFAULT_API_SOURCE",
         "detail": "config",
         "documentation": {}
     },

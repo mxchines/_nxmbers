@@ -11,7 +11,7 @@ def update_config():
     config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)
     config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)
     config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)
-    config.USER_API_KEY = data.get('apiKey', config.DEFAULT_API_KEY)
+    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified
     
     return jsonify({"message": "Configuration updated successfully"}), 200
 

@@ -29,8 +29,12 @@
             <option value="1h">Hourly</option>
         </select>
 
-        <label for="apiKey">API Key:</label>
-        <input type="text" id="apiKey" name="apiKey" required>
+        <label for="apiSource">API Source:</label>
+        <select id="apiSource" name="apiSource">
+            <option value="yahoo">Yahoo Finance</option>
+            <option value="alpha_vantage">Alpha Vantage</option>
+            <option value="twelve_data">Twelve Data</option>
+        </select>
 
         <button type="submit">Fetch Data</button>
     </form>
@@ -41,21 +45,22 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
             
-            // In a real application, you would send this data to your backend
-            console.log('Form data:', data);
-            alert('Data submitted. Check the console for details.');
-
-            // Here you would typically make an API call to your backend
-            // fetch('/api/update-config', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data),
-            // })
-            // .then(response => response.json())
-            // .then(data => console.log('Success:', data))
-            // .catch((error) => console.error('Error:', error));
+            fetch('/api/update-config', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Configuration updated successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('An error occurred. Please check the console for details.');
+            });
         });
     </script>
 </body>
