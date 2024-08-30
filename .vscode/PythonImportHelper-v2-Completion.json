@@ -241,12 +241,28 @@
         "documentation": {}
     },
     {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "config",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "config",
         "description": "config",
         "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "isExtraImport": true,
+        "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
     {
@@ -555,7 +571,7 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def main(ticker, start_date, end_date, interval='1d'):\n    # Fetch data from all three sources\n    yahoo_data = fetch_yahoo_finance_data(ticker, start_date, end_date, interval)\n    alpha_data = fetch_alpha_vantage_data(ticker, 'daily')\n    twelve_data = fetch_twelve_data(ticker, start_date, end_date)\n    # Save individual datasets\n    yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')\n    alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')\n    twelve_csv_path = get_data_path(__file__, f'{ticker}_twelve_data.csv')\n    yahoo_data.to_csv(yahoo_csv_path)",
+        "peekOfCode": "def main(ticker, start_date, end_date, interval='1d'):\n    # Fetch data from all three sources\n    yahoo_data = fetch_yahoo_finance_data(ticker, start_date, end_date, interval)\n    alpha_data = fetch_alpha_vantage_data(ticker, 'daily')\n    twelve_data = fetch_twelve_data(ticker, start_date, end_date)\n    # Create 'csv' subdirectory if it doesn't exist\n    csv_dir = get_data_path(__file__, 'csv')\n    os.makedirs(csv_dir, exist_ok=True)\n    # Save individual datasets\n    yahoo_csv_path = os.path.join(csv_dir, f'{ticker}_yahoo_data.csv')",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -708,7 +724,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200\n@app.route('/')\ndef index():",
+        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    # Execute data_fetcher.py with the updated configuration\n    try:\n        fetch_data(",
         "detail": "app",
         "documentation": {}
     },
@@ -717,7 +733,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def index():\n    return send_from_directory('.', 'index.html')\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_source=config.DEFAULT_API_SOURCE)\nif __name__ == '__main__':\n    app.run(debug=True)",
         "detail": "app",
         "documentation": {}
     },
@@ -726,7 +742,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    return jsonify({\"message\": \"Configuration updated successfully\"}), 200",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    # Execute data_fetcher.py with the updated configuration",
         "detail": "app",
         "documentation": {}
     },

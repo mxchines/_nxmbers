@@ -55,20 +55,39 @@ def fetch_twelve_data(ticker, start_date, end_date, interval='1day'):
     df = df.sort_index()
     return df
 
+import os
+
 def main(ticker, start_date, end_date, interval='1d'):
     # Fetch data from all three sources
     yahoo_data = fetch_yahoo_finance_data(ticker, start_date, end_date, interval)
     alpha_data = fetch_alpha_vantage_data(ticker, 'daily')
     twelve_data = fetch_twelve_data(ticker, start_date, end_date)
 
+    # Create 'csv' subdirectory if it doesn't exist
+    csv_dir = get_data_path(__file__, 'csv')
+    os.makedirs(csv_dir, exist_ok=True)
+
     # Save individual datasets
-    yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')
-    alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')
-    twelve_csv_path = get_data_path(__file__, f'{ticker}_twelve_data.csv')
+    yahoo_csv_path = os.path.join(csv_dir, f'{ticker}_yahoo_data.csv')
+    alpha_csv_path = os.path.join(csv_dir, f'{ticker}_alpha_data.csv')
+    twelve_csv_path = os.path.join(csv_dir, f'{ticker}_twelve_data.csv')
 
     yahoo_data.to_csv(yahoo_csv_path)
     alpha_data.to_csv(alpha_csv_path)
     twelve_data.to_csv(twelve_csv_path)
+
+    print(f"Data fetching complete for {ticker}.")
+    print(f"Yahoo Finance data saved to '{yahoo_csv_path}'")
+    print(f"Alpha Vantage data saved to '{alpha_csv_path}'")
+    print(f"Twelve Data data saved to '{twelve_csv_path}'")
+
+if __name__ == "__main__":
+    # These default values will be overridden when called from the main application
+    main('AAPL', '2020-01-01', '2023-01-01')
+
+if __name__ == "__main__":
+    # These default values will be overridden when called from the main application
+    main('AAPL', '2020-01-01', '2023-01-01')
 
     print(f"Data fetching complete for {ticker}.")
     print(f"Yahoo Finance data saved to '{yahoo_csv_path}'")
