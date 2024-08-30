@@ -94,31 +94,30 @@
 </head>
 <body>
     <h1>Stock Data Fetcher</h1>
-
     <form id="configForm">
         <label for="ticker">Ticker:</label>
         <input type="text" id="ticker" name="ticker" value="{{ default_ticker }}" required>
-
+        
         <label for="startDate">Start Date:</label>
         <input type="date" id="startDate" name="startDate" value="{{ default_start_date }}" required>
-
+        
         <label for="endDate">End Date:</label>
         <input type="date" id="endDate" name="endDate" value="{{ default_end_date }}" required>
-
+        
         <label for="interval">Interval:</label>
         <select id="interval" name="interval" required>
             <option value="1d" {% if default_interval == '1day' %}selected{% endif %}>1 Day</option>
             <option value="1h" {% if default_interval == '1h' %}selected{% endif %}>1 Hour</option>
             <option value="1min" {% if default_interval == '1min' %}selected{% endif %}>1 Minute</option>
         </select>
-
+        
         <label for="apiSource">API Source:</label>
         <select id="apiSource" name="apiSource" required>
             <option value="yahoo" {% if default_api_source == 'yahoo' %}selected{% endif %}>Yahoo Finance</option>
             <option value="alpha_vantage" {% if default_api_source == 'alpha_vantage' %}selected{% endif %}>Alpha Vantage</option>
             <option value="twelve_data" {% if default_api_source == 'twelve_data' %}selected{% endif %}>Twelve Data</option>
         </select>
-
+        
         <button type="submit">Fetch Data</button>
     </form>
 
@@ -128,40 +127,14 @@
     <script>
         document.getElementById('configForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            let formData = {
+            
+            const formData = {
                 ticker: document.getElementById('ticker').value,
                 startDate: document.getElementById('startDate').value,
                 endDate: document.getElementById('endDate').value,
                 interval: document.getElementById('interval').value,
                 apiSource: document.getElementById('apiSource').value
             };
-
-            // API-specific adjustments
-            switch (formData.apiSource) {
-                case 'yahoo':
-                    // Map '1day' to '1d' for Yahoo Finance
-                    if (formData.interval === '1day') {
-                        formData.interval = '1d';
-                    } 
-                    // Yahoo Finance doesn't support '1min', map to '1m'
-                    else if (formData.interval === '1min') {
-                        formData.interval = '1m';
-                    }
-                    break;
-                // ... other API cases (add adjustments as needed)
-            }
-
-            // Check for unsupported intervals in non-Yahoo APIs
-            if (formData.apiSource !== 'yahoo') {
-                const unsupportedIntervals = ['1min']; // Add other unsupported intervals if needed
-                if (unsupportedIntervals.includes(formData.interval)) {
-                    messageDiv.innerText = 'Error: The selected interval is not supported for the selected API.';
-                    messageDiv.classList.add('error');
-                    loadingDiv.style.display = 'none';
-                    return; 
-                }
-            }
 
             const messageDiv = document.getElementById('message');
             const loadingDiv = document.querySelector('.loading');

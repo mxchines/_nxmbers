@@ -175,28 +175,20 @@
         "documentation": {}
     },
     {
-        "label": "requests",
+        "label": "TDClient",
+        "importPath": "twelvedata",
+        "description": "twelvedata",
+        "isExtraImport": true,
+        "detail": "twelvedata",
+        "documentation": {}
+    },
+    {
+        "label": "config",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
-        "documentation": {}
-    },
-    {
-        "label": "clean_data",
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "isExtraImport": true,
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "clean_data",
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "isExtraImport": true,
-        "detail": "data_cleaning.data_cleaner",
+        "importPath": "config",
+        "description": "config",
+        "detail": "config",
         "documentation": {}
     },
     {
@@ -265,15 +257,6 @@
         "documentation": {}
     },
     {
-        "label": "config",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "config",
-        "description": "config",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
         "label": "main",
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
@@ -295,6 +278,14 @@
         "description": "data_ingestion.data_combiner",
         "isExtraImport": true,
         "detail": "data_ingestion.data_combiner",
+        "documentation": {}
+    },
+    {
+        "label": "clean_data",
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "isExtraImport": true,
+        "detail": "data_cleaning.data_cleaner",
         "documentation": {}
     },
     {
@@ -493,11 +484,11 @@
         "documentation": {}
     },
     {
-        "label": "fetch_yahoo_finance_data",
+        "label": "fetch_yahoo_data",
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_yahoo_finance_data(ticker, start_date, end_date, interval='1d'):\n    \"\"\"\n    Fetch historical market data from Yahoo Finance.\n    \"\"\"\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    return data\ndef fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"\n    Fetch historical market data from Alpha Vantage.\n    \"\"\"",
+        "peekOfCode": "def fetch_yahoo_data(ticker, start_date, end_date, interval):\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    data.reset_index(inplace=True)\n    data.columns = ['date', 'open', 'high', 'low', 'close', 'adj_close', 'volume']\n    data['source'] = 'yahoo'\n    return data\ndef fetch_alpha_vantage_data(ticker, start_date, end_date, interval):\n    ts = TimeSeries(key=config.ALPHA_VANTAGE_API_KEY)\n    data, _ = ts.get_daily(symbol=ticker, outputsize='full')\n    df = pd.DataFrame(data).T",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -506,7 +497,7 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"\n    Fetch historical market data from Alpha Vantage.\n    \"\"\"\n    ts = TimeSeries(key=ALPHA_VANTAGE_API_KEY, output_format='pandas')\n    if interval == 'daily':\n        data, meta_data = ts.get_daily(symbol=ticker, outputsize='full')\n    elif interval == '60min':\n        data, meta_data = ts.get_intraday(symbol=ticker, interval='60min', outputsize='full')\n    else:",
+        "peekOfCode": "def fetch_alpha_vantage_data(ticker, start_date, end_date, interval):\n    ts = TimeSeries(key=config.ALPHA_VANTAGE_API_KEY)\n    data, _ = ts.get_daily(symbol=ticker, outputsize='full')\n    df = pd.DataFrame(data).T\n    df.index = pd.to_datetime(df.index)\n    df = df[(df.index >= start_date) & (df.index <= end_date)]\n    df.reset_index(inplace=True)\n    df.columns = ['date', 'open', 'high', 'low', 'close', 'volume']\n    df['adj_close'] = df['close']\n    df['source'] = 'alpha_vantage'",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -515,7 +506,25 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_twelve_data(ticker, start_date, end_date, interval='1day'):\n    \"\"\"\n    Fetch historical market data from Twelve Data.\n    \"\"\"\n    url = f\"https://api.twelvedata.com/time_series\"\n    params = {\n        \"symbol\": ticker,\n        \"interval\": interval,\n        \"start_date\": start_date,\n        \"end_date\": end_date,",
+        "peekOfCode": "def fetch_twelve_data(ticker, start_date, end_date, interval):\n    td = TDClient(apikey=config.TWELVE_DATA_API_KEY)\n    data = td.time_series(\n        symbol=ticker,\n        interval=interval,\n        start_date=start_date,\n        end_date=end_date\n    ).as_pandas()\n    data.reset_index(inplace=True)\n    data.columns = ['date', 'open', 'high', 'low', 'close', 'volume']",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_and_combine_data",
+        "kind": 2,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "def fetch_and_combine_data(ticker, start_date, end_date, interval):\n    yahoo_data = fetch_yahoo_data(ticker, start_date, end_date, interval)\n    alpha_data = fetch_alpha_vantage_data(ticker, start_date, end_date, interval)\n    twelve_data = fetch_twelve_data(ticker, start_date, end_date, interval)\n    combined_data = pd.concat([yahoo_data, alpha_data, twelve_data], ignore_index=True)\n    combined_data.sort_values('date', inplace=True)\n    return combined_data\ndef save_data(data, ticker):\n    output_dir = get_data_path(__file__, 'csv')\n    os.makedirs(output_dir, exist_ok=True)",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "save_data",
+        "kind": 2,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "def save_data(data, ticker):\n    output_dir = get_data_path(__file__, 'csv')\n    os.makedirs(output_dir, exist_ok=True)\n    output_file = os.path.join(output_dir, f'{ticker}_data.csv')\n    data.to_csv(output_file, index=False)\n    print(f\"Combined data saved to {output_file}\")\ndef main(ticker, start_date, end_date, interval):\n    combined_data = fetch_and_combine_data(ticker, start_date, end_date, interval)\n    save_data(combined_data, ticker)\n    return f\"Data fetching and combining completed successfully for {ticker}\"",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -524,25 +533,7 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def main(ticker, start_date, end_date, interval='1d'):\n    # Fetch data from all three sources\n    yahoo_data = fetch_yahoo_finance_data(ticker, start_date, end_date, interval)\n    alpha_data = fetch_alpha_vantage_data(ticker, 'daily')\n    twelve_data = fetch_twelve_data(ticker, start_date, end_date)\n    # Create 'csv' subdirectory if it doesn't exist\n    csv_dir = get_data_path(__file__, 'csv')\n    os.makedirs(csv_dir, exist_ok=True)\n    # Save individual datasets\n    yahoo_csv_path = os.path.join(csv_dir, f'{ticker}_yahoo_data.csv')",
-        "detail": "data_ingestion.data_fetcher",
-        "documentation": {}
-    },
-    {
-        "label": "ALPHA_VANTAGE_API_KEY",
-        "kind": 5,
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\ndef fetch_yahoo_finance_data(ticker, start_date, end_date, interval='1d'):\n    \"\"\"\n    Fetch historical market data from Yahoo Finance.\n    \"\"\"\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    return data\ndef fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"",
-        "detail": "data_ingestion.data_fetcher",
-        "documentation": {}
-    },
-    {
-        "label": "TWELVE_DATA_API_KEY",
-        "kind": 5,
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "TWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\ndef fetch_yahoo_finance_data(ticker, start_date, end_date, interval='1d'):\n    \"\"\"\n    Fetch historical market data from Yahoo Finance.\n    \"\"\"\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    return data\ndef fetch_alpha_vantage_data(ticker, interval='daily'):\n    \"\"\"\n    Fetch historical market data from Alpha Vantage.",
+        "peekOfCode": "def main(ticker, start_date, end_date, interval):\n    combined_data = fetch_and_combine_data(ticker, start_date, end_date, interval)\n    save_data(combined_data, ticker)\n    return f\"Data fetching and combining completed successfully for {ticker}\"\nif __name__ == \"__main__\":\n    ticker = \"AAPL\"\n    start_date = \"2023-01-01\"\n    end_date = \"2023-12-31\"\n    interval = \"1d\"\n    main(ticker, start_date, end_date, interval)",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -677,7 +668,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    # Execute data_fetcher.py with the updated configuration\n    try:\n        fetch_data(",
+        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    # Execute data_fetcher.py with the updated configuration\n    try:\n        result = fetch_data(",
         "detail": "app",
         "documentation": {}
     },
@@ -731,7 +722,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'",
         "detail": "config",
         "documentation": {}
     },
@@ -740,7 +731,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'",
+        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'",
         "detail": "config",
         "documentation": {}
     },
@@ -749,7 +740,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys",
+        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys",
         "detail": "config",
         "documentation": {}
     },
@@ -758,7 +749,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER",
+        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER",
         "detail": "config",
         "documentation": {}
     },
@@ -767,7 +758,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
+        "peekOfCode": "DEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
         "detail": "config",
         "documentation": {}
     },
@@ -776,7 +767,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
+        "peekOfCode": "DEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
         "detail": "config",
         "documentation": {}
     },
@@ -785,7 +776,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "DEFAULT_INTERVAL = '1d'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "peekOfCode": "DEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
         "detail": "config",
         "documentation": {}
     },

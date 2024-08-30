@@ -16,13 +16,13 @@ def update_config():
 
     # Execute data_fetcher.py with the updated configuration
     try:
-        fetch_data(
+        result = fetch_data(
             ticker=config.USER_TICKER,
             start_date=config.USER_START_DATE,
             end_date=config.USER_END_DATE,
             interval=config.USER_INTERVAL
         )
-        return jsonify({"message": "Configuration updated and data fetched successfully"}), 200
+        return jsonify({"message": result}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
