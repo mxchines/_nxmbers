@@ -31,8 +31,8 @@ def clean_data():
     # df = df.dropna()
 
     # Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)
-    # df = df.fillna(0)  # Example to fill numeric columns with 0
-    # df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'
+     df = df.fillna(NaN)  # Example to fill numeric columns with 0
+     df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'
 
     # Option 3: Fill missing values with the mean/median/mode for numeric columns
     # df = df.fillna(df.mean())  # Fill with mean
