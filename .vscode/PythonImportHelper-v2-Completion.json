@@ -184,6 +184,22 @@
         "documentation": {}
     },
     {
+        "label": "clean_data",
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "isExtraImport": true,
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "clean_data",
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
+        "isExtraImport": true,
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
         "label": "psycopg2",
         "kind": 6,
         "isExtraImport": true,
@@ -282,14 +298,6 @@
         "documentation": {}
     },
     {
-        "label": "clean_data",
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "isExtraImport": true,
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
         "label": "run_r_models",
         "importPath": "prediction_model.r_model_executor",
         "description": "prediction_model.r_model_executor",
@@ -303,6 +311,14 @@
         "description": "results_storage.results_saver",
         "isExtraImport": true,
         "detail": "results_storage.results_saver",
+        "documentation": {}
+    },
+    {
+        "label": "upload_to_rds",
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "isExtraImport": true,
+        "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
     {
@@ -432,74 +448,11 @@
         "documentation": {}
     },
     {
-        "label": "input_file_path",
-        "kind": 5,
+        "label": "clean_data",
+        "kind": 2,
         "importPath": "data_cleaning.data_cleaner",
         "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "input_file_path = get_data_path(__file__, 'combined_data.csv')\n# Generate the timestamp\ntimestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n# Define the directory and the file name\noutput_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \noutput_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "timestamp",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n# Define the directory and the file name\noutput_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \noutput_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "output_dir",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "output_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \noutput_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "output_file_name",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "output_file_name = f'cleaned_data-{timestamp}.csv'\noutput_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "output_file_path",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "output_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned',output_file_name)\n# Load the combined market data\ndf = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "df",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "df = pd.read_csv(input_file_path)\n# Step 1: Standardize column names (lowercase and replace spaces with underscores)\ndf.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values\n# df = df.dropna()\n# Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "df.columns",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "df.columns = df.columns.str.lower().str.replace(' ', '_')\n# Step 2: Remove any duplicate rows\ndf = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values\n# df = df.dropna()\n# Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)\n# df = df.fillna(0)  # Example to fill numeric columns with 0\n# df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'",
-        "detail": "data_cleaning.data_cleaner",
-        "documentation": {}
-    },
-    {
-        "label": "df",
-        "kind": 5,
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "df = df.drop_duplicates()\n# Step 3: Handle missing values\n# Here are a few approaches. Uncomment the one you want to use:\n# Option 1: Drop rows with any missing values\n# df = df.dropna()\n# Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)\n# df = df.fillna(0)  # Example to fill numeric columns with 0\n# df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'\n# Option 3: Fill missing values with the mean/median/mode for numeric columns\n# df = df.fillna(df.mean())  # Fill with mean",
+        "peekOfCode": "def clean_data():\n    # Define the input path\n    input_file_path = get_data_path(__file__, 'combined_data.csv')\n    # Generate the timestamp\n    timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n    # Define the directory and the file name\n    output_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \n    output_file_name = f'cleaned_data-{timestamp}.csv'\n    output_file_path = os.path.join(output_dir, output_file_name)\n    # Load the combined market data",
         "detail": "data_cleaning.data_cleaner",
         "documentation": {}
     },
@@ -661,16 +614,16 @@
         "kind": 2,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )\n    cursor.executemany(insert_query, values)",
+        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )\n    for value in tqdm(values, desc=\"Inserting data\"):",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
     {
-        "label": "main",
+        "label": "upload_to_rds",
         "kind": 2,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "def main():\n    # Read the CSV file\n    csv_path = os.path.join(os.getcwd(),  '..', 'nxmbers', 'data', 'cleaned', 'cleaned_data-20240828-085813.csv')  \n    df = pd.read_csv(csv_path)\n    # Ensure 'date' column is datetime\n    df['date'] = pd.to_datetime(df['date'])\n    # Connect to the database\n    conn = psycopg2.connect(\n        host=DB_HOST,\n        database=DB_NAME,",
+        "peekOfCode": "def upload_to_rds(file_path):\n    # Read the CSV file\n    df = pd.read_csv(file_path)\n    # Ensure 'date' column is datetime\n    df['date'] = pd.to_datetime(df['date'])\n    # Connect to the database\n    conn = psycopg2.connect(\n        host=DB_HOST,\n        database=DB_NAME,\n        user=DB_USER,",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },

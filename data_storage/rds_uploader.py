@@ -35,12 +35,12 @@ def create_table(conn, cursor, table_name, column_types):
             sql.SQL(col_type)
         ) for col, col_type in column_types.items()
     ]
-    
+
     create_table_query = sql.SQL("CREATE TABLE IF NOT EXISTS {} ({})").format(
         sql.Identifier(table_name),
         sql.SQL(', ').join(columns)
     )
-    
+
     cursor.execute(create_table_query)
     conn.commit()
 
@@ -48,24 +48,24 @@ def insert_data(conn, cursor, table_name, df):
     """Insert data into the table."""
     columns = list(df.columns)
     values = [tuple(x) for x in df.to_numpy()]
-    
+
     insert_query = sql.SQL("INSERT INTO {} ({}) VALUES ({})").format(
         sql.Identifier(table_name),
         sql.SQL(', ').join(map(sql.Identifier, columns)),
         sql.SQL(', ').join(sql.Placeholder() * len(columns))
     )
-    
-    cursor.executemany(insert_query, values)
+
+    for value in tqdm(values, desc="Inserting data"):
+        cursor.execute(insert_query, value)
     conn.commit()
 
-def main():
+def upload_to_rds(file_path):
     # Read the CSV file
-    csv_path = os.path.join(os.getcwd(),  '..', 'nxmbers', 'data', 'cleaned', 'cleaned_data-20240828-085813.csv')  
-    df = pd.read_csv(csv_path)
-    
+    df = pd.read_csv(file_path)
+
     # Ensure 'date' column is datetime
     df['date'] = pd.to_datetime(df['date'])
-    
+
     # Connect to the database
     conn = psycopg2.connect(
         host=DB_HOST,
@@ -75,24 +75,28 @@ def main():
         port=DB_PORT
     )
     cursor = conn.cursor()
-    
+
     # Create table name
     table_name = create_table_name()
-    
+
     # Get column types
     column_types = get_column_types(df)
-    
+
     # Create table
     create_table(conn, cursor, table_name, column_types)
-    
+
     # Insert data
     insert_data(conn, cursor, table_name, df)
-    
+
     print(f"Data successfully inserted into table: {table_name}")
-    
+
     # Close connection
     cursor.close()
     conn.close()
 
+    return table_name
+
 if __name__ == "__main__":
-    main()
+    # For testing purposes
+    test_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned', 'cleaned_data-20240828-085813.csv')
+    upload_to_rds(test_file_path)

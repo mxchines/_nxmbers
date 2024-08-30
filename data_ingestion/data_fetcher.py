@@ -3,6 +3,7 @@ from alpha_vantage.timeseries import TimeSeries
 import requests
 import pandas as pd
 from path_utility import get_data_path
+from data_cleaning.data_cleaner import clean_data  # Import the clean_data function
 
 ALPHA_VANTAGE_API_KEY = "KXUK213E0W7JLEQV"
 TWELVE_DATA_API_KEY = "2409a8dd5abd488e8d833f929476b034"
@@ -85,14 +86,19 @@ if __name__ == "__main__":
     # These default values will be overridden when called from the main application
     main('AAPL', '2020-01-01', '2023-01-01')
 
-if __name__ == "__main__":
-    # These default values will be overridden when called from the main application
-    main('AAPL', '2020-01-01', '2023-01-01')
-
     print(f"Data fetching complete for {ticker}.")
     print(f"Yahoo Finance data saved to '{yahoo_csv_path}'")
     print(f"Alpha Vantage data saved to '{alpha_csv_path}'")
     print(f"Twelve Data data saved to '{twelve_csv_path}'")
+
+     # Trigger data cleaning process
+    try:
+        clean_data()
+        print("Data cleaning process completed successfully.")
+    except Exception as e:
+        print(f"Error during data cleaning: {str(e)}")
+
+    return "Data fetching and cleaning completed successfully."
 
 if __name__ == "__main__":
     # These default values will be overridden when called from the main application
