@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NXMBERS</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -95,93 +93,64 @@
 <body>
     <h1>NXMBERS</h1>
 
-    <form id="configForm">
-        <label for="ticker">Ticket:</label>
-        <input type="text" id="ticker" name="ticker" value="{{ default_ticker }}" required>
-
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" value="{{ default_start_date }}" required>
-
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate" value="{{ default_end_date }}" required>
-
-        <label for="interval">Interval:</label>
-        <select id="interval" name="interval" required>
-            <option value="1day" {% if default_interval == '1day' %}selected{% endif %}>1 Day</option>
+    <form id="dataForm">
+        Ticker: <input type="text" id="ticker" name="ticker" value="{{ default_ticker }}" required><br>
+        Start Date: <input type="date" id="start_date" name="start_date" value="{{ default_start_date }}" required><br>
+        End Date: <input type="date" id="end_date" name="end_date" value="{{ default_end_date }}" required><br>
+        
+        Interval: 
+        <select id="interval" name="interval">
+            <option value="1d" {% if default_interval == '1d' %}selected{% endif %}>1 Day</option>
             <option value="1h" {% if default_interval == '1h' %}selected{% endif %}>1 Hour</option>
-            <option value="1min" {% if default_interval == '1min' %}selected{% endif %}>1 Minute</option>
-        </select>
-
-        <label for="apiSource">API Source:</label>
-        <select id="apiSource" name="apiSource" required>
-            <option value="yahoo" {% if default_api_source == 'yahoo' %}selected{% endif %}>Yahoo Finance</option>
-            <option value="alpha_vantage" {% if default_api_source == 'alpha_vantage' %}selected{% endif %}>Alpha Vantage</option>
-            <option value="twelve_data" {% if default_api_source == 'twelve_data' %}selected{% endif %}>Twelve Data</option>
-        </select>
+            <option value="1m" {% if default_interval == '1m' %}selected{% endif %}>1 Minute</option>
+        </select><br>
+        
+        API Source:<br>
+        <input type="checkbox" id="yahoo" name="apiSources" value="yahoo" {% if 'yahoo' in default_api_sources %}checked{% endif %}>
+        <label for="yahoo">Yahoo Finance</label><br>
+        <input type="checkbox" id="alpha" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>
+        <label for="alpha">Alpha Vantage</label><br>
 
         <button type="submit">Fetch Data</button>
     </form>
 
     <div id="message"></div>
-    <div class="loading"></div>
+    <div class="loading">Loading...</div>
 
     <script>
-        document.getElementById('configForm').addEventListener('submit', function(e) {
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            var message = document.getElementById('message');
+            var loading = document.querySelector('.loading');
+            message.style.display = 'none';
+            loading.style.display = 'block';
 
-            let formData = {
+            var formData = {
                 ticker: document.getElementById('ticker').value,
-                startDate: document.getElementById('startDate').value,
-                endDate: document.getElementById('endDate').value,
+                startDate: document.getElementById('start_date').value,
+                endDate: document.getElementById('end_date').value,
                 interval: document.getElementById('interval').value,
-                apiSource: document.getElementById('apiSource').value
+                apiSources: Array.from(document.querySelectorAll('input[name="apiSources"]:checked')).map(el => el.value)
             };
 
-            // API-specific adjustments
-            switch (formData.apiSource) {
-                case 'yahoo':
-                    // Map '1day' to '1d' for Yahoo Finance
-                    if (formData.interval === '1day') {
-                        formData.interval = '1d';
-                    } 
-                    // Yahoo Finance doesn't support '1min', map to '1m'
-                    else if (formData.interval === '1min') {
-                        formData.interval = '1m';
-                    }
-                    break;
-                // ... other API cases (add adjustments as needed)
-            }
-
-            // Check for unsupported intervals in non-Yahoo APIs
-            if (formData.apiSource !== 'yahoo') {
-                const unsupportedIntervals = ['1min']; // Add other unsupported intervals if needed
-                if (unsupportedIntervals.includes(formData.interval)) {
-                    messageDiv.innerText = 'Error: The selected interval is not supported for the selected API.';
-                    messageDiv.classList.add('error');
-                    loadingDiv.style.display = 'none';
-                    return; 
-                }
-            }
-
-            const messageDiv = document.getElementById('message');
-            const loadingDiv = document.querySelector('.loading');
-
-            messageDiv.className = '';
-            messageDiv.innerText = '';
-            loadingDiv.style.display = 'block';
-
-            axios.post('/api/update-config', formData)
-                .then(function (response) {
-                    messageDiv.innerText = response.data.message;
-                    messageDiv.classList.add('success');
-                })
-                .catch(function (error) {
-                    messageDiv.innerText = 'Error: ' + (error.response?.data?.error || 'An unexpected error occurred');
-                    messageDiv.classList.add('error');
-                })
-                .finally(function () {
-                    loadingDiv.style.display = 'none';
-                });
+            fetch('/api/update-config', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                loading.style.display = 'none';
+                message.textContent = data.message || data.error;
+                message.style.display = 'block';
+            })
+            .catch((error) => {
+                loading.style.display = 'none';
+                message.textContent = 'An error occurred: ' + error;
+                message.style.display = 'block';
+            });
         });
     </script>
 </body>

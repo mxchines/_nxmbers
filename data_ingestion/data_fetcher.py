@@ -31,18 +31,21 @@ def save_data(data, ticker, source):
     data.to_csv(output_file, index=False)
     print(f"{source.capitalize()} data saved to {output_file}")
 
-def main(ticker, start_date, end_date, interval):
-    yahoo_data = fetch_yahoo_data(ticker, start_date, end_date, interval)
-    alpha_data = fetch_alpha_vantage_data(ticker, start_date, end_date, interval)
+def main(ticker, start_date, end_date, interval, api_sources):
+    for source in api_sources:
+        if source == 'yahoo':
+            yahoo_data = fetch_yahoo_data(ticker, start_date, end_date, interval)
+            save_data(yahoo_data, ticker, 'yahoo')
+        elif source == 'alpha':
+            alpha_data = fetch_alpha_vantage_data(ticker, start_date, end_date, interval)
+            save_data(alpha_data, ticker, 'alpha_vantage')
     
-    save_data(yahoo_data, ticker, 'yahoo')
-    save_data(alpha_data, ticker, 'alpha_vantage')
-    
-    return f"Data fetching completed successfully for {ticker} from Yahoo Finance and Alpha Vantage"
+    return f"Data fetching completed successfully for {ticker} from {', '.join(api_sources)}"
 
 if __name__ == "__main__":
     ticker = "AAPL"
     start_date = "2023-01-01"
     end_date = "2023-12-31"
     interval = "1d"
-    main(ticker, start_date, end_date, interval)
+    api_sources = ['yahoo', 'alpha']
+    main(ticker, start_date, end_date, interval, api_sources)

@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory, render_template
-import os
+from flask import Flask, request, jsonify, render_template
 import config
 from data_ingestion.data_fetcher import main as fetch_data
 
@@ -12,7 +11,7 @@ def update_config():
     config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)
     config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)
     config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)
-    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified
+    config.USER_API_SOURCES = data.get('apiSources', config.DEFAULT_API_SOURCES)
 
     # Execute data_fetcher.py with the updated configuration
     try:
@@ -20,7 +19,8 @@ def update_config():
             ticker=config.USER_TICKER,
             start_date=config.USER_START_DATE,
             end_date=config.USER_END_DATE,
-            interval=config.USER_INTERVAL
+            interval=config.USER_INTERVAL,
+            api_sources=config.USER_API_SOURCES
         )
         return jsonify({"message": result}), 200
     except Exception as e:
@@ -33,7 +33,7 @@ def index():
                            default_start_date=config.DEFAULT_START_DATE,
                            default_end_date=config.DEFAULT_END_DATE,
                            default_interval=config.DEFAULT_INTERVAL,
-                           default_api_source=config.DEFAULT_API_SOURCE)
+                           default_api_sources=config.DEFAULT_API_SOURCES)
 
 if __name__ == '__main__':
     app.run(debug=True)
