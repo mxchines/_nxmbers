@@ -1,23 +1,20 @@
 import pandas as pd
 from path_utility import get_data_path
 
-def combine_data(yahoo_data, alpha_data, twelve_data):
+def combine_data(yahoo_data, alpha_data):
     """
-    Combine Yahoo Finance, Alpha Vantage, and Twelve Data data.
+    Combine Yahoo Finance and Alpha Vantage data.
     """
     # Reset index for all dataframes
     yahoo_data = yahoo_data.reset_index()
     alpha_data = alpha_data.reset_index()
-    twelve_data = twelve_data.reset_index()
 
     # Ensure consistent date column naming
     yahoo_data = yahoo_data.rename(columns={'Date': 'date'})
     alpha_data = alpha_data.rename(columns={'date': 'date'})
-    twelve_data = twelve_data.rename(columns={'datetime': 'date'})
 
-    # Merge all dataframes
+    # Merge dataframes
     combined_data = pd.merge(yahoo_data, alpha_data, on='date', how='outer', suffixes=('_yahoo', '_alpha'))
-    combined_data = pd.merge(combined_data, twelve_data, on='date', how='outer', suffixes=('', '_twelve'))
 
     # Sort by date
     combined_data = combined_data.sort_values('date')
@@ -27,13 +24,11 @@ def combine_data(yahoo_data, alpha_data, twelve_data):
 def main(ticker):
     yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')
     alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')
-    twelve_csv_path = get_data_path(__file__, f'{ticker}_twelve_data.csv')
 
-    yahoo_data = pd.read_csv(yahoo_csv_path, index_col=0, parse_dates=True)
-    alpha_data = pd.read_csv(alpha_csv_path, index_col=0, parse_dates=True)
-    twelve_data = pd.read_csv(twelve_csv_path, index_col=0, parse_dates=True)
+    yahoo_data = pd.read_csv(yahoo_csv_path, parse_dates=['date'])
+    alpha_data = pd.read_csv(alpha_csv_path, parse_dates=['date'])
 
-    combined_data = combine_data(yahoo_data, alpha_data, twelve_data)
+    combined_data = combine_data(yahoo_data, alpha_data)
 
     combined_csv_path = get_data_path(__file__, f'{ticker}_combined_data.csv')
     combined_data.to_csv(combined_csv_path, index=False)
