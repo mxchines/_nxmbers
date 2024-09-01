@@ -59,6 +59,21 @@
             border-radius: 4px;
             text-align: center;
         }
+        form {
+            /* ... other form styles ... */
+            text-align: left; 
+        }
+
+        #yahoo, #alpha { /* Target checkboxes by ID */
+            /* display: inline-block; */
+            vertical-align: left;
+            margin-right: 0%;
+            text-align: right; /* Ensure text within the checkbox container is left-aligned */
+        }
+        label {
+            display: inline-block;
+            margin-left: 10px;
+        }
         .success {
             background-color: #d4edda;
             color: #155724;
@@ -105,11 +120,11 @@
             <option value="1m" {% if default_interval == '1m' %}selected{% endif %}>1 Minute</option>
         </select><br>
         
-        API Source:<br>
-        <input type="checkbox" id="yahoo" name="apiSources" value="yahoo" {% if 'yahoo' in default_api_sources %}checked{% endif %}>
-        <label for="yahoo">Yahoo Finance</label><br>
-        <input type="checkbox" id="alpha" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>
-        <label for="alpha">Alpha Vantage</label><br>
+        Data Source:<br>
+       
+        <label for="yahoo">YF<input type="checkbox" id="yahoo" name="apiSources" value="yahoo" {% if 'yahoo' in default_api_sources %}checked{% endif %}></label>
+        
+        <label for="alpha">AV<input type="checkbox" id="alpha" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}></label><br>
 
         <button type="submit">Fetch Data</button>
     </form>
