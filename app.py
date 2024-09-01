@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 import config
 from data_ingestion.data_fetcher import main as fetch_data
+import logging
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 @app.route('/api/update-config', methods=['POST'])
 def update_config():
@@ -13,18 +16,19 @@ def update_config():
     config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)
     config.USER_API_SOURCES = data.get('apiSources', config.DEFAULT_API_SOURCES)
 
-    # Execute data_fetcher.py with the updated configuration
     try:
         result = fetch_data(
             ticker=config.USER_TICKER,
             start_date=config.USER_START_DATE,
             end_date=config.USER_END_DATE,
             interval=config.USER_INTERVAL,
-            api_sources=config.USER_API_SOURCES
+            api_sources=config.USER_API_SOURCES,
+            beam_api_key=config.BEAM_API_KEY
         )
         return jsonify({"message": result}), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error in update_config: {str(e)}")
+        return jsonify({"error": "An error occurred while fetching data. Please try again."}), 500
 
 @app.route('/')
 def index():

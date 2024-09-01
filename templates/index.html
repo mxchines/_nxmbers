@@ -1,10 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NXMBERS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
+        .loading {
+            display: none;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -104,28 +110,33 @@
             100% { transform: rotate(360deg); }
         }
     </style>
+    
 </head>
 <body>
     <h1>NXMBERS</h1>
-
-    <form id="dataForm">
-        Ticker: <input type="text" id="ticker" name="ticker" value="{{ default_ticker }}" required><br>
-        Start Date: <input type="date" id="start_date" name="start_date" value="{{ default_start_date }}" required><br>
-        End Date: <input type="date" id="end_date" name="end_date" value="{{ default_end_date }}" required><br>
+    <form id="dataFetchForm">
+        <label for="ticker">Ticker:</label>
+        <input type="text" id="ticker" name="ticker" value="{{ default_ticker }}" required><br><br>
         
-        Interval: 
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" value="{{ default_start_date }}" required><br><br>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" value="{{ default_end_date }}" required><br><br>
+        
+        <label for="interval">Interval:</label>
         <select id="interval" name="interval">
-            <option value="1d" {% if default_interval == '1d' %}selected{% endif %}>1 Day</option>
-            <option value="1h" {% if default_interval == '1h' %}selected{% endif %}>1 Hour</option>
-            <option value="1m" {% if default_interval == '1m' %}selected{% endif %}>1 Minute</option>
-        </select><br>
+            <option value="1day" {% if default_interval == '1day' %}selected{% endif %}>1 Day</option>
+            <option value="1hour" {% if default_interval == '1hour' %}selected{% endif %}>1 Hour</option>
+            <option value="1min" {% if default_interval == '1min' %}selected{% endif %}>1 Minute</option>
+        </select><br><br>
         
-        Data Source:<br>
-       
-        <label for="yahoo">YF<input type="checkbox" id="yahoo" name="apiSources" value="yahoo" {% if 'yahoo' in default_api_sources %}checked{% endif %}></label>
+        <label>Data Source:</label><br>
+        <input type="checkbox" id="beamSource" name="apiSources" value="beam" {% if 'beam' in default_api_sources %}checked{% endif %}>
+        <label for="beamSource">Beam</label>
+        <input type="checkbox" id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>
+        <label for="alphaSource">Alpha</label><br><br>
         
-        <label for="alpha">AV<input type="checkbox" id="alpha" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}></label><br>
-
         <button type="submit">Fetch Data</button>
     </form>
 
@@ -133,38 +144,37 @@
     <div class="loading">Loading...</div>
 
     <script>
-        document.getElementById('dataForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var message = document.getElementById('message');
-            var loading = document.querySelector('.loading');
-            message.style.display = 'none';
-            loading.style.display = 'block';
+        $(document).ready(function() {
+            $('#dataFetchForm').submit(function(e) {
+                e.preventDefault();
+                $('.loading').show();
+                $('#message').text('');
 
-            var formData = {
-                ticker: document.getElementById('ticker').value,
-                startDate: document.getElementById('start_date').value,
-                endDate: document.getElementById('end_date').value,
-                interval: document.getElementById('interval').value,
-                apiSources: Array.from(document.querySelectorAll('input[name="apiSources"]:checked')).map(el => el.value)
-            };
+                var apiSources = [];
+                $('input[name="apiSources"]:checked').each(function() {
+                    apiSources.push($(this).val());
+                });
 
-            fetch('/api/update-config', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                loading.style.display = 'none';
-                message.textContent = data.message || data.error;
-                message.style.display = 'block';
-            })
-            .catch((error) => {
-                loading.style.display = 'none';
-                message.textContent = 'An error occurred: ' + error;
-                message.style.display = 'block';
+                $.ajax({
+                    url: '/api/update-config',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        ticker: $('#ticker').val(),
+                        startDate: $('#startDate').val(),
+                        endDate: $('#endDate').val(),
+                        interval: $('#interval').val(),
+                        apiSources: apiSources
+                    }),
+                    success: function(response) {
+                        $('.loading').hide();
+                        $('#message').text(response.message);
+                    },
+                    error: function(xhr, status, error) {
+                        $('.loading').hide();
+                        $('#message').text('Error: ' + xhr.responseJSON.error);
+                    }
+                });
             });
         });
     </script>

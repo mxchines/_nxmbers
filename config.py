@@ -8,22 +8,19 @@ db_port = 5432
 forecast_horizon = 12
 # ... other variables
 
-# Configuration settings for the stock data fetcher
+# config.py
+ALPHA_VANTAGE_API_KEY = "KXUK213E0W7JLEQV"
+BEAM_API_KEY = "NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1"
 
-# Default values
 DEFAULT_TICKER = 'AAPL'
 DEFAULT_START_DATE = '2000-01-01'
 DEFAULT_END_DATE = '2024-08-01'
 DEFAULT_INTERVAL = '1day'
-DEFAULT_API_SOURCES = ['yahoo', 'alpha']  # Updated to support multiple sources
-
-# API Keys
-ALPHA_VANTAGE_API_KEY = "KXUK213E0W7JLEQV"
-TWELVE_DATA_API_KEY = "2409a8dd5abd488e8d833f929476b034"
+DEFAULT_API_SOURCES = ['beam', 'alpha']
 
 # User input values (to be updated by the frontend)
 USER_TICKER = DEFAULT_TICKER
 USER_START_DATE = DEFAULT_START_DATE
 USER_END_DATE = DEFAULT_END_DATE
 USER_INTERVAL = DEFAULT_INTERVAL
-USER_API_SOURCES = DEFAULT_API_SOURCES  # Updated to support multiple sources
+USER_API_SOURCES = DEFAULT_API_SOURCES

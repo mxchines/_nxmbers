@@ -4,7 +4,7 @@ from data_ingestion.data_combiner import main as combine_data
 from data_cleaning.data_cleaner import clean_data
 from prediction_model.r_model_executor import run_r_models
 from results_storage.results_saver import save_results
-from data_storage.rds_uploader import upload_to_rds  # Add this import
+from data_storage.rds_uploader import upload_to_rds
 
 def main():
     # Fetch data
@@ -13,7 +13,8 @@ def main():
         start_date=config.USER_START_DATE,
         end_date=config.USER_END_DATE,
         interval=config.USER_INTERVAL,
-        api_key=config.USER_API_KEY
+        api_sources=config.USER_API_SOURCES,
+        beam_api_key=config.BEAM_API_KEY
     )
 
     # Combine data
