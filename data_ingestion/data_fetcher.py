@@ -6,14 +6,13 @@ from gql.transport.requests import RequestsHTTPTransport
 from path_utility import get_data_path
 import config
 import logging
+import requests
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def fetch_beam_data(ticker, start_date, end_date, interval, api_key):
-    # Replace this URL with the correct Beam GraphQL endpoint
-    beam_url = 'https://api.beamapi.com/data/fundamentals/us/sec/form_4/v1'  # This needs to be updated
-    
+    beam_url = 'https://api.beamapi.com/data/fundamentals/us/sec/form_4/v1'
     transport = RequestsHTTPTransport(
         url=beam_url,
         headers={'Authorization': f'Bearer {api_key}'},
@@ -39,7 +38,7 @@ def fetch_beam_data(ticker, start_date, end_date, interval, api_key):
 
         variables = {
             'ticker': ticker,
-            'startDate': start_date,
+           'startDate': start_date,
             'endDate': end_date,
             'interval': interval,
         }
@@ -51,9 +50,11 @@ def fetch_beam_data(ticker, start_date, end_date, interval, api_key):
         df.columns = ['date', 'open', 'high', 'low', 'close', 'volume', 'adj_close']
         df['source'] = 'beam'
         return df
+    except requests.exceptions.HTTPError as e:
+        logger.error(f"HTTP error: {e}")
     except Exception as e:
         logger.error(f"Failed to fetch data from Beam API: {str(e)}")
-        return None
+    return None
 
 def fetch_alpha_vantage_data(ticker, start_date, end_date, interval):
     try:
@@ -98,7 +99,12 @@ def main(ticker, start_date, end_date, interval, api_sources, beam_api_key):
                 save_data(alpha_data, ticker, 'alpha_vantage')
                 data_fetched = True
     
-    if data_fetched:
+       if data_fetched:
+        import os
+        import sys
+        sys.path.insert(0, '../data_cleaning')
+        from data_cleaner import clean_data
+        clean_data()
         return f"Data fetching completed successfully for {ticker} from available sources"
     else:
         return f"Failed to fetch data for {ticker} from any source"

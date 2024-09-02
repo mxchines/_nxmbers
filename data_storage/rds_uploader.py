@@ -96,7 +96,16 @@ def upload_to_rds(file_path):
 
     return table_name
 
+def main():
+    # Define the directory containing the cleaned CSV files
+    cleaned_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'cleaned')
+
+    # Iterate over the cleaned CSV files
+    for file in os.listdir(cleaned_dir):
+        if file.endswith('.csv'):
+            file_path = os.path.join(cleaned_dir, file)
+            print(f"Uploading {file} to RDS...")
+            upload_to_rds(file_path)
+
 if __name__ == "__main__":
-    # For testing purposes
-    test_file_path = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned', 'cleaned_data-20240828-085813.csv')
-    upload_to_rds(test_file_path)
+    main()
