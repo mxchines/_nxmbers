@@ -74,11 +74,20 @@
             /* display: inline-block; */
             vertical-align: left;
             margin-right: 0%;
-            text-align: right; /* Ensure text within the checkbox container is left-aligned */
+            text-align: left; /* Ensure text within the checkbox container is left-aligned */
         }
         label {
             display: inline-block;
             margin-left: 10px;
+
+        }
+        .datacheckbox {
+            margin-left: 0px;
+            position: relative;
+            display: block;
+        }
+        .sourcelabel {
+            text-align: center;
         }
         .success {
             background-color: #d4edda;
@@ -131,12 +140,13 @@
             <option value="1min" {% if default_interval == '1min' %}selected{% endif %}>1 Minute</option>
         </select><br><br>
         
-        <label>Data Source:</label><br>
-        <input type="checkbox" id="beamSource" name="apiSources" value="beam" {% if 'beam' in default_api_sources %}checked{% endif %}>
-        <label for="beamSource">Beam</label>
-        <input type="checkbox" id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>
-        <label for="alphaSource">Alpha</label><br><br>
+        <label>Source:</label><br>
+       <!-- <input type="checkbox" id="beamSource" name="apiSources" value="beam" {% if 'beam' in default_api_sources %}checked{% endif %}>
+        <label for="beamSource">Beam</label> -->
         
+        <div class="sourcelabel"><label for="alphaSource">AlphaVantage</label>
+        <input class="datacheckbox" type="checkbox" id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>
+        </div>
         <button type="submit">Fetch Data</button>
     </form>
 
