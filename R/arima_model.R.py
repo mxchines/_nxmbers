@@ -6,6 +6,7 @@ import pandas as pd
 import logging
 import os
 import socket
+import plotly.graph_objects as go
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -94,6 +95,31 @@ try:
     forecast_lower = ro.r('as.numeric')(forecasts.rx2('lower')[0])
     forecast_upper = ro.r('as.numeric')(forecasts.rx2('upper')[0])
 
+    # Generate forecast dates
+    forecast_dates = pd.date_range(start=pdf['date'].iloc[-1] + pd.Timedelta(days=1), periods=15, freq='D')
+
+    # Create a Plotly figure
+    fig = go.Figure(data=[go.Scatter(x=pdf['date'], y=pdf['close_alpha'], name='Actual'),
+                    go.Scatter(x=forecast_dates, y=forecast_mean, name='Forecast')])
+
+    # Add zooming and interactive controls
+    fig.update_layout(title='ARIMA Forecast', xaxis_title='Date', yaxis_title='Close Alpha')
+    fig.update_layout(dragmode='pan', 
+                  xaxis=dict(type='date', autorange=True, fixedrange=False),
+                  yaxis=dict(autorange=True, fixedrange=False))
+    fig.update_xaxes(rangeslider_visible=True, 
+                    rangeselector=dict(
+                        buttons=[
+                            dict(count=1, label='1m', step='month', stepmode='backward'),
+                            dict(count=6, label='6m', step='month', stepmode='backward'),
+                            dict(count=1, label='1y', step='year', stepmode='backward'),
+                            dict(step='all')
+                        ]
+                    ))
+
+    # Show the plot
+    fig.show()
+
     # Plot the forecasts
     logging.info("Plotting forecasts...")
     import matplotlib.pyplot as plt
@@ -107,11 +133,14 @@ try:
     plt.ylabel('Close Alpha')
     plt.legend()
 
+    
+
     # Ensure directory exists before saving
     os.makedirs('../nxmbers/data/plots/png', exist_ok=True)
     plt.savefig('../nxmbers/data/plots/png/forecast_plot.png')
 
     logging.info("Analysis complete! Plot saved as forecast_plot.png")
+
 
 except socket.gaierror as e:
     logging.error(f"Failed to resolve hostname: {str(e)}")
