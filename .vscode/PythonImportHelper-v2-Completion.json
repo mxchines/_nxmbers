@@ -42,24 +42,6 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
         "label": "logging",
         "kind": 6,
         "isExtraImport": true,
@@ -78,92 +60,110 @@
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "get_data_path",
-        "importPath": "path_utility",
-        "description": "path_utility",
-        "isExtraImport": true,
-        "detail": "path_utility",
-        "documentation": {}
-    },
-    {
-        "label": "get_data_path",
-        "importPath": "path_utility",
-        "description": "path_utility",
-        "isExtraImport": true,
-        "detail": "path_utility",
-        "documentation": {}
-    },
-    {
-        "label": "get_data_path",
-        "importPath": "path_utility",
-        "description": "path_utility",
-        "isExtraImport": true,
-        "detail": "path_utility",
-        "documentation": {}
-    },
-    {
-        "label": "get_data_path",
-        "importPath": "path_utility",
-        "description": "path_utility",
-        "isExtraImport": true,
-        "detail": "path_utility",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "yfinance",
+        "label": "socket",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "yfinance",
-        "description": "yfinance",
-        "detail": "yfinance",
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_path",
+        "importPath": "path_utility",
+        "description": "path_utility",
+        "isExtraImport": true,
+        "detail": "path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -175,11 +175,27 @@
         "documentation": {}
     },
     {
-        "label": "TDClient",
-        "importPath": "twelvedata",
-        "description": "twelvedata",
+        "label": "gql",
+        "importPath": "gql",
+        "description": "gql",
         "isExtraImport": true,
-        "detail": "twelvedata",
+        "detail": "gql",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "gql",
+        "description": "gql",
+        "isExtraImport": true,
+        "detail": "gql",
+        "documentation": {}
+    },
+    {
+        "label": "RequestsHTTPTransport",
+        "importPath": "gql.transport.requests",
+        "description": "gql.transport.requests",
+        "isExtraImport": true,
+        "detail": "gql.transport.requests",
         "documentation": {}
     },
     {
@@ -189,6 +205,128 @@
         "importPath": "config",
         "description": "config",
         "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_TICKER",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_START_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_END_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_INTERVAL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_API_SOURCES",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BEAM_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_TICKER",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_START_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_END_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_INTERVAL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_API_SOURCES",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BEAM_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "clean_data",
+        "importPath": "data_cleaner",
+        "description": "data_cleaner",
+        "isExtraImport": true,
+        "detail": "data_cleaner",
         "documentation": {}
     },
     {
@@ -241,14 +379,6 @@
         "documentation": {}
     },
     {
-        "label": "send_from_directory",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "render_template",
         "importPath": "flask",
         "description": "flask",
@@ -265,11 +395,35 @@
         "documentation": {}
     },
     {
-        "label": "main",
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
+        "label": "clean_data",
+        "importPath": "data_cleaning.data_cleaner",
+        "description": "data_cleaning.data_cleaner",
         "isExtraImport": true,
-        "detail": "data_ingestion.data_fetcher",
+        "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "isExtraImport": true,
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "upload_to_rds",
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "isExtraImport": true,
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "update_config_data",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
         "documentation": {}
     },
     {
@@ -278,14 +432,6 @@
         "description": "data_ingestion.data_combiner",
         "isExtraImport": true,
         "detail": "data_ingestion.data_combiner",
-        "documentation": {}
-    },
-    {
-        "label": "clean_data",
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
-        "isExtraImport": true,
-        "detail": "data_cleaning.data_cleaner",
         "documentation": {}
     },
     {
@@ -302,14 +448,6 @@
         "description": "results_storage.results_saver",
         "isExtraImport": true,
         "detail": "results_storage.results_saver",
-        "documentation": {}
-    },
-    {
-        "label": "upload_to_rds",
-        "importPath": "data_storage.rds_uploader",
-        "description": "data_storage.rds_uploader",
-        "isExtraImport": true,
-        "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
     {
@@ -344,7 +482,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "forecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database",
+        "peekOfCode": "forecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -353,7 +491,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "stats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
+        "peekOfCode": "stats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -362,7 +500,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -371,7 +509,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -380,7 +518,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -389,7 +527,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,\n                        password=db_password,",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -398,7 +536,7 @@
         "kind": 5,
         "importPath": "R.arima_model.R",
         "description": "R.arima_model.R",
-        "peekOfCode": "db_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,\n                        password=db_password,\n                        port=db_port)",
+        "peekOfCode": "db_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_ip,",
         "detail": "R.arima_model.R",
         "documentation": {}
     },
@@ -443,7 +581,7 @@
         "kind": 2,
         "importPath": "data_cleaning.data_cleaner",
         "description": "data_cleaning.data_cleaner",
-        "peekOfCode": "def clean_data():\n    # Define the input path\n    input_file_path = get_data_path(__file__, 'combined_data.csv')\n    # Generate the timestamp\n    timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n    # Define the directory and the file name\n    output_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \n    output_file_name = f'cleaned_data-{timestamp}.csv'\n    output_file_path = os.path.join(output_dir, output_file_name)\n    # Load the combined market data",
+        "peekOfCode": "def clean_data():\n    # Define the input directory\n    input_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'csv')\n    # Define the output directory\n    output_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'cleaned')\n    # Iterate over the CSV files in the input directory\n    for file in os.listdir(input_dir):\n        if file.endswith('.csv'):\n            # Construct the full file path\n            input_file_path = os.path.join(input_dir, file)",
         "detail": "data_cleaning.data_cleaner",
         "documentation": {}
     },
@@ -470,7 +608,7 @@
         "kind": 2,
         "importPath": "data_ingestion.data_combiner",
         "description": "data_ingestion.data_combiner",
-        "peekOfCode": "def combine_data(yahoo_data, alpha_data, twelve_data):\n    \"\"\"\n    Combine Yahoo Finance, Alpha Vantage, and Twelve Data data.\n    \"\"\"\n    # Reset index for all dataframes\n    yahoo_data = yahoo_data.reset_index()\n    alpha_data = alpha_data.reset_index()\n    twelve_data = twelve_data.reset_index()\n    # Ensure consistent date column naming\n    yahoo_data = yahoo_data.rename(columns={'Date': 'date'})",
+        "peekOfCode": "def combine_data(yahoo_data, alpha_data):\n    \"\"\"\n    Combine Yahoo Finance and Alpha Vantage data.\n    \"\"\"\n    # Reset index for all dataframes\n    yahoo_data = yahoo_data.reset_index()\n    alpha_data = alpha_data.reset_index()\n    # Ensure consistent date column naming\n    yahoo_data = yahoo_data.rename(columns={'Date': 'date'})\n    alpha_data = alpha_data.rename(columns={'date': 'date'})",
         "detail": "data_ingestion.data_combiner",
         "documentation": {}
     },
@@ -479,16 +617,16 @@
         "kind": 2,
         "importPath": "data_ingestion.data_combiner",
         "description": "data_ingestion.data_combiner",
-        "peekOfCode": "def main(ticker):\n    yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')\n    alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')\n    twelve_csv_path = get_data_path(__file__, f'{ticker}_twelve_data.csv')\n    yahoo_data = pd.read_csv(yahoo_csv_path, index_col=0, parse_dates=True)\n    alpha_data = pd.read_csv(alpha_csv_path, index_col=0, parse_dates=True)\n    twelve_data = pd.read_csv(twelve_csv_path, index_col=0, parse_dates=True)\n    combined_data = combine_data(yahoo_data, alpha_data, twelve_data)\n    combined_csv_path = get_data_path(__file__, f'{ticker}_combined_data.csv')\n    combined_data.to_csv(combined_csv_path, index=False)",
+        "peekOfCode": "def main(ticker):\n    yahoo_csv_path = get_data_path(__file__, f'{ticker}_yahoo_data.csv')\n    alpha_csv_path = get_data_path(__file__, f'{ticker}_alpha_data.csv')\n    yahoo_data = pd.read_csv(yahoo_csv_path, parse_dates=['date'])\n    alpha_data = pd.read_csv(alpha_csv_path, parse_dates=['date'])\n    combined_data = combine_data(yahoo_data, alpha_data)\n    combined_csv_path = get_data_path(__file__, f'{ticker}_combined_data.csv')\n    combined_data.to_csv(combined_csv_path, index=False)\n    print(f\"Data combination complete for {ticker}.\")\n    print(f\"Combined data saved to '{combined_csv_path}'\")",
         "detail": "data_ingestion.data_combiner",
         "documentation": {}
     },
     {
-        "label": "fetch_yahoo_data",
+        "label": "fetch_beam_data",
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_yahoo_data(ticker, start_date, end_date, interval):\n    data = yf.download(ticker, start=start_date, end=end_date, interval=interval)\n    data.reset_index(inplace=True)\n    data.columns = ['date', 'open', 'high', 'low', 'close', 'adj_close', 'volume']\n    data['source'] = 'yahoo'\n    return data\ndef fetch_alpha_vantage_data(ticker, start_date, end_date, interval):\n    ts = TimeSeries(key=config.ALPHA_VANTAGE_API_KEY)\n    data, _ = ts.get_daily(symbol=ticker, outputsize='full')\n    df = pd.DataFrame(data).T",
+        "peekOfCode": "def fetch_beam_data(ticker, start_date, end_date, interval, api_key):\n    beam_url = 'https://api.beamapi.com/data/fundamentals/us/sec/form_4/v1'\n    transport = RequestsHTTPTransport(\n        url=beam_url,\n        headers={'Authorization': f'Bearer {api_key}'},\n        use_json=True,\n    )\n    try:\n        client = Client(transport=transport, fetch_schema_from_transport=True)\n        query = gql('''",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -497,25 +635,7 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_alpha_vantage_data(ticker, start_date, end_date, interval):\n    ts = TimeSeries(key=config.ALPHA_VANTAGE_API_KEY)\n    data, _ = ts.get_daily(symbol=ticker, outputsize='full')\n    df = pd.DataFrame(data).T\n    df.index = pd.to_datetime(df.index)\n    df = df[(df.index >= start_date) & (df.index <= end_date)]\n    df.reset_index(inplace=True)\n    df.columns = ['date', 'open', 'high', 'low', 'close', 'volume']\n    df['adj_close'] = df['close']\n    df['source'] = 'alpha_vantage'",
-        "detail": "data_ingestion.data_fetcher",
-        "documentation": {}
-    },
-    {
-        "label": "fetch_twelve_data",
-        "kind": 2,
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_twelve_data(ticker, start_date, end_date, interval):\n    td = TDClient(apikey=config.TWELVE_DATA_API_KEY)\n    data = td.time_series(\n        symbol=ticker,\n        interval=interval,\n        start_date=start_date,\n        end_date=end_date\n    ).as_pandas()\n    data.reset_index(inplace=True)\n    data.columns = ['date', 'open', 'high', 'low', 'close', 'volume']",
-        "detail": "data_ingestion.data_fetcher",
-        "documentation": {}
-    },
-    {
-        "label": "fetch_and_combine_data",
-        "kind": 2,
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def fetch_and_combine_data(ticker, start_date, end_date, interval):\n    yahoo_data = fetch_yahoo_data(ticker, start_date, end_date, interval)\n    alpha_data = fetch_alpha_vantage_data(ticker, start_date, end_date, interval)\n    twelve_data = fetch_twelve_data(ticker, start_date, end_date, interval)\n    combined_data = pd.concat([yahoo_data, alpha_data, twelve_data], ignore_index=True)\n    combined_data.sort_values('date', inplace=True)\n    return combined_data\ndef save_data(data, ticker):\n    output_dir = get_data_path(__file__, 'csv')\n    os.makedirs(output_dir, exist_ok=True)",
+        "peekOfCode": "def fetch_alpha_vantage_data(ticker, start_date, end_date, interval):\n    try:\n        ts = TimeSeries(key=config.ALPHA_VANTAGE_API_KEY)\n        data, _ = ts.get_daily(symbol=ticker, outputsize='full')\n        df = pd.DataFrame(data).T\n        df.index = pd.to_datetime(df.index)\n        df = df[(df.index >= start_date) & (df.index <= end_date)]\n        df.reset_index(inplace=True)\n        df.columns = ['date', 'open', 'high', 'low', 'close', 'volume']\n        df['adj_close'] = df['close']",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -524,7 +644,7 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def save_data(data, ticker):\n    output_dir = get_data_path(__file__, 'csv')\n    os.makedirs(output_dir, exist_ok=True)\n    output_file = os.path.join(output_dir, f'{ticker}_data.csv')\n    data.to_csv(output_file, index=False)\n    print(f\"Combined data saved to {output_file}\")\ndef main(ticker, start_date, end_date, interval):\n    combined_data = fetch_and_combine_data(ticker, start_date, end_date, interval)\n    save_data(combined_data, ticker)\n    return f\"Data fetching and combining completed successfully for {ticker}\"",
+        "peekOfCode": "def save_data(data, ticker, source):\n    if data is not None and not data.empty:\n        output_dir = get_data_path(__file__, 'csv')\n        os.makedirs(output_dir, exist_ok=True)\n        output_file = os.path.join(output_dir, f'{ticker}_{source}_data.csv')\n        data.to_csv(output_file, index=False)\n        logger.info(f\"{source.capitalize()} data saved to {output_file}\")\n    else:\n        logger.warning(f\"No data to save for {ticker} from {source}\")\ndef main(ticker, start_date, end_date, interval, api_sources, beam_api_key):",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -533,7 +653,25 @@
         "kind": 2,
         "importPath": "data_ingestion.data_fetcher",
         "description": "data_ingestion.data_fetcher",
-        "peekOfCode": "def main(ticker, start_date, end_date, interval):\n    combined_data = fetch_and_combine_data(ticker, start_date, end_date, interval)\n    save_data(combined_data, ticker)\n    return f\"Data fetching and combining completed successfully for {ticker}\"\nif __name__ == \"__main__\":\n    ticker = \"AAPL\"\n    start_date = \"2023-01-01\"\n    end_date = \"2023-12-31\"\n    interval = \"1d\"\n    main(ticker, start_date, end_date, interval)",
+        "peekOfCode": "def main(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    data_fetched = False\n    for source in api_sources:\n        if source == 'beam':\n            beam_data = fetch_beam_data(ticker, start_date, end_date, interval, beam_api_key)\n            if beam_data is not None:\n                save_data(beam_data, ticker, 'beam')\n                data_fetched = True\n            else:\n                logger.warning(\"Falling back to Alpha Vantage due to Beam API failure\")",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "current_dir",
+        "kind": 5,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the path to the data_cleaning directory\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\n# Now you can import data_cleaner\nfrom data_cleaner import clean_data\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef fetch_beam_data(ticker, start_date, end_date, interval, api_key):\n    beam_url = 'https://api.beamapi.com/data/fundamentals/us/sec/form_4/v1'\n    transport = RequestsHTTPTransport(",
+        "detail": "data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "data_ingestion.data_fetcher",
+        "description": "data_ingestion.data_fetcher",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef fetch_beam_data(ticker, start_date, end_date, interval, api_key):\n    beam_url = 'https://api.beamapi.com/data/fundamentals/us/sec/form_4/v1'\n    transport = RequestsHTTPTransport(\n        url=beam_url,\n        headers={'Authorization': f'Bearer {api_key}'},\n        use_json=True,\n    )\n    try:\n        client = Client(transport=transport, fetch_schema_from_transport=True)",
         "detail": "data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -619,6 +757,15 @@
         "documentation": {}
     },
     {
+        "label": "main",
+        "kind": 2,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "def main():\n    # Define the directory containing the cleaned CSV files\n    cleaned_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'cleaned')\n    # Iterate over the cleaned CSV files\n    for file in os.listdir(cleaned_dir):\n        if file.endswith('.csv'):\n            file_path = os.path.join(cleaned_dir, file)\n            print(f\"Uploading {file} to RDS...\")\n            upload_to_rds(file_path)\nif __name__ == \"__main__\":",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
         "label": "DB_HOST",
         "kind": 5,
         "importPath": "data_storage.rds_uploader",
@@ -664,11 +811,20 @@
         "documentation": {}
     },
     {
+        "label": "update_config_data",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key\n    )",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "update_config",
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    # Execute data_fetcher.py with the updated configuration\n    try:\n        result = fetch_data(",
+        "peekOfCode": "def update_config():\n    data = request.json\n    ticker = data.get('ticker', USER_TICKER)\n    start_date = data.get('startDate', USER_START_DATE)\n    end_date = data.get('endDate', USER_END_DATE)\n    interval = data.get('interval', USER_INTERVAL)\n    api_sources = data.get('apiSources', USER_API_SOURCES)\n    update_config_data(ticker, start_date, end_date, interval, api_sources, BEAM_API_KEY)\n    return jsonify({\"message\": \"Data updated successfully\"}), 200\n@app.route('/')",
         "detail": "app",
         "documentation": {}
     },
@@ -677,7 +833,16 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_source=config.DEFAULT_API_SOURCE)\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_sources=config.DEFAULT_API_SOURCES)\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "current_dir",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\nprint(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data  # Corrected import",
         "detail": "app",
         "documentation": {}
     },
@@ -686,7 +851,16 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCE = data.get('apiSource', 'yahoo')  # Default to Yahoo if not specified\n    # Execute data_fetcher.py with the updated configuration",
+        "peekOfCode": "app = Flask(__name__)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key",
         "detail": "app",
         "documentation": {}
     },
@@ -695,7 +869,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"",
         "detail": "config",
         "documentation": {}
     },
@@ -704,7 +878,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'",
         "detail": "config",
         "documentation": {}
     },
@@ -713,7 +887,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'",
         "detail": "config",
         "documentation": {}
     },
@@ -722,7 +896,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'",
         "detail": "config",
         "documentation": {}
     },
@@ -731,7 +905,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'",
+        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'",
         "detail": "config",
         "documentation": {}
     },
@@ -740,52 +914,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# Configuration settings for the stock data fetcher\n# Default values\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "DEFAULT_TICKER",
-        "kind": 5,
-        "importPath": "config",
-        "description": "config",
-        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "DEFAULT_START_DATE",
-        "kind": 5,
-        "importPath": "config",
-        "description": "config",
-        "peekOfCode": "DEFAULT_START_DATE = '1980-01-01'\nDEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "DEFAULT_END_DATE",
-        "kind": 5,
-        "importPath": "config",
-        "description": "config",
-        "peekOfCode": "DEFAULT_END_DATE = '2024-01-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "DEFAULT_INTERVAL",
-        "kind": 5,
-        "importPath": "config",
-        "description": "config",
-        "peekOfCode": "DEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "DEFAULT_API_SOURCE",
-        "kind": 5,
-        "importPath": "config",
-        "description": "config",
-        "peekOfCode": "DEFAULT_API_SOURCE = 'yahoo'\n# API Keys\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "forecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']",
         "detail": "config",
         "documentation": {}
     },
@@ -794,16 +923,61 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nTWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "ALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE",
         "detail": "config",
         "documentation": {}
     },
     {
-        "label": "TWELVE_DATA_API_KEY",
+        "label": "BEAM_API_KEY",
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "TWELVE_DATA_API_KEY = \"2409a8dd5abd488e8d833f929476b034\"\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "BEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_TICKER",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_START_DATE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_END_DATE",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_INTERVAL",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_INTERVAL = '1day'\nDEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_API_SOURCES",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "DEFAULT_API_SOURCES = ['beam', 'alpha']\n# User input values (to be updated by the frontend)\nUSER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
         "detail": "config",
         "documentation": {}
     },
@@ -812,7 +986,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "USER_TICKER = DEFAULT_TICKER\nUSER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
         "detail": "config",
         "documentation": {}
     },
@@ -821,7 +995,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "USER_START_DATE = DEFAULT_START_DATE\nUSER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
         "detail": "config",
         "documentation": {}
     },
@@ -830,7 +1004,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "USER_END_DATE = DEFAULT_END_DATE\nUSER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
         "detail": "config",
         "documentation": {}
     },
@@ -839,16 +1013,16 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "USER_INTERVAL = DEFAULT_INTERVAL\nUSER_API_SOURCES = DEFAULT_API_SOURCES",
         "detail": "config",
         "documentation": {}
     },
     {
-        "label": "USER_API_SOURCE",
+        "label": "USER_API_SOURCES",
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "USER_API_SOURCE = DEFAULT_API_SOURCE",
+        "peekOfCode": "USER_API_SOURCES = DEFAULT_API_SOURCES",
         "detail": "config",
         "documentation": {}
     },
@@ -857,7 +1031,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    # Fetch data\n    fetch_data(\n        ticker=config.USER_TICKER,\n        start_date=config.USER_START_DATE,\n        end_date=config.USER_END_DATE,\n        interval=config.USER_INTERVAL,\n        api_key=config.USER_API_KEY\n    )\n    # Combine data",
+        "peekOfCode": "def main():\n    # Fetch data\n    update_config_data(\n        ticker=config.USER_TICKER,\n        start_date=config.USER_START_DATE,\n        end_date=config.USER_END_DATE,\n        interval=config.USER_INTERVAL,\n        api_sources=config.USER_API_SOURCES,\n        beam_api_key=config.BEAM_API_KEY\n    )",
         "detail": "main",
         "documentation": {}
     },

@@ -33,21 +33,9 @@ def clean_data():
             df = df.drop_duplicates()
 
             # Step 3: Handle missing values
-            # Here are a few approaches. You can uncomment the one you want to use:
-
-            # Option 1: Drop rows with any missing values
-            # df = df.dropna()
-
-            # Option 2: Fill missing values with a specific value (e.g., 0, 'Unknown', etc.)
             df = df.fillna('Unknown')  # Example to fill categorical columns with 'Unknown'
 
-            # Option 3: Fill missing values with the mean/median/mode for numeric columns
-            # df = df.fillna(df.mean())  # Fill with mean
-            # df = df.fillna(df.median())  # Fill with median
-            # df = df.apply(lambda x: x.fillna(x.mode()[0]) if x.dtype == 'O' else x, axis=0)  # Fill with mode for categorical
-
             # Step 4: Convert date columns to datetime format
-            # If you have date columns, convert them using the following line:
             df['date'] = pd.to_datetime(df['date'], errors='coerce')
 
             # Step 5: Remove any rows where critical columns are missing (e.g., price, volume)
@@ -58,11 +46,11 @@ def clean_data():
 
             print(f"Data cleaning complete for {file}. Cleaned data saved to {output_file_path}.")
 
-            import os
-            import sys
-            sys.path.insert(0, '../data_storage')
-            from rds_uploader import main as rds_uploader_main
-            rds_uploader_main()
+    # Import and run RDS uploader
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'data_storage'))
+    from rds_uploader import main as rds_uploader_main
+    rds_uploader_main()
 
 if __name__ == "__main__":
     clean_data()

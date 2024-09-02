@@ -152,28 +152,28 @@
 
                 var apiSources = [];
                 $('input[name="apiSources"]:checked').each(function() {
-                    apiSources.push($(this).val());
+                apiSources.push($(this).val());
                 });
 
                 $.ajax({
-                    url: '/api/update-config',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        ticker: $('#ticker').val(),
-                        startDate: $('#startDate').val(),
-                        endDate: $('#endDate').val(),
-                        interval: $('#interval').val(),
-                        apiSources: apiSources
-                    }),
-                    success: function(response) {
-                        $('.loading').hide();
-                        $('#message').text(response.message);
-                    },
-                    error: function(xhr, status, error) {
-                        $('.loading').hide();
-                        $('#message').text('Error: ' + xhr.responseJSON.error);
-                    }
+                url: '/api/update-config',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    ticker: $('#ticker').val(),
+                    startDate: $('#startDate').val(),
+                    endDate: $('#endDate').val(),
+                    interval: $('#interval').val(),
+                    apiSources: apiSources
+                }),
+                success: function(response) {
+                    $('.loading').hide();
+                    $('#message').text(response.message);
+                },
+                error: function(xhr, status, error) {
+                    $('.loading').hide();
+                    $('#message').text('Error:'+ xhr.responseJSON.error);
+                }
                 });
             });
         });

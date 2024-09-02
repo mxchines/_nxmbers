@@ -8,6 +8,18 @@ import config
 import logging
 import requests
 
+import sys
+import os
+
+# Get the current directory of data_fetcher.py
+current_dir = os.path.dirname(__file__)
+
+# Add the path to the data_cleaning directory
+sys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))
+
+# Now you can import data_cleaner
+from data_cleaner import clean_data
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -38,7 +50,7 @@ def fetch_beam_data(ticker, start_date, end_date, interval, api_key):
 
         variables = {
             'ticker': ticker,
-           'startDate': start_date,
+            'startDate': start_date,
             'endDate': end_date,
             'interval': interval,
         }
@@ -98,8 +110,8 @@ def main(ticker, start_date, end_date, interval, api_sources, beam_api_key):
             if alpha_data is not None:
                 save_data(alpha_data, ticker, 'alpha_vantage')
                 data_fetched = True
-    
-       if data_fetched:
+
+    if data_fetched:
         import os
         import sys
         sys.path.insert(0, '../data_cleaning')

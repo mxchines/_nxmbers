@@ -1,14 +1,14 @@
 import config
-from data_ingestion.data_fetcher import main as fetch_data
+from config import USER_TICKER, USER_START_DATE, USER_END_DATE, USER_INTERVAL, USER_API_SOURCES, BEAM_API_KEY
+from app import update_config_data
 from data_ingestion.data_combiner import main as combine_data
-from data_cleaning.data_cleaner import clean_data
 from prediction_model.r_model_executor import run_r_models
 from results_storage.results_saver import save_results
 from data_storage.rds_uploader import upload_to_rds
 
 def main():
     # Fetch data
-    fetch_data(
+    update_config_data(
         ticker=config.USER_TICKER,
         start_date=config.USER_START_DATE,
         end_date=config.USER_END_DATE,
@@ -20,11 +20,8 @@ def main():
     # Combine data
     combine_data(config.USER_TICKER)
 
-    # Clean data
-    cleaned_file_path = clean_data()
-
     # Upload cleaned data to RDS
-    table_name = upload_to_rds(cleaned_file_path)
+    table_name = upload_to_rds()
     print(f"Data uploaded to RDS table: {table_name}")
 
     # Run R models
