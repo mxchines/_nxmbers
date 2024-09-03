@@ -1,0 +1,1 @@
+SELECT * FROM public.market_data_2024_09_02_075500 LIMIT 10000;
