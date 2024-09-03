@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(current_dir, '../data_storage'))
 sys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))
 
 # Print out the sys.path variable
-print(sys.path)
+# print(sys.path)
 
 # Import the necessary modules
 from data_ingestion.data_fetcher import main as fetch_data

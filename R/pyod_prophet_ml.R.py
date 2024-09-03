@@ -3,10 +3,14 @@ from rpy2.robjects.packages import importr
 from rpy2.robjects import pandas2ri
 from rpy2.robjects.conversion import localconverter
 import pandas as pd
+import numpy as np
 import logging
 import os
 import socket
 import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+from statsmodels.tsa.arima.model import ARIMA
+from pmdarima import auto_arima
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -15,8 +19,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 base = importr('base')
 DBI = importr('DBI')
 RPostgres = importr('RPostgres')
-forecast = importr('forecast')
-stats = importr('stats')
 
 # Database connection parameters
 db_host = "numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
@@ -66,92 +68,75 @@ try:
     # Remove NaN values
     pdf = pdf.dropna()
 
+    # Set date as index
+    pdf.set_index('date', inplace=True)
+
     # Log data info
     logging.info(f"Data info:\n{pdf.info()}")
     logging.info(f"Data description:\n{pdf.describe()}")
     logging.info(f"Data head:\n{pdf.head()}")
 
-    # Convert back to R dataframe
-    with localconverter(ro.default_converter + pandas2ri.converter):
-        data = ro.conversion.py2rpy(pdf)
-
-    # Convert data to time series
-    ts_data = stats.ts(data.rx2('close_alpha'), frequency=365, start=ro.FloatVector([pdf['date'].dt.year.min(), pdf['date'].dt.dayofyear.min()]))
+    # Automatically select ARIMA parameters
+    logging.info("Selecting ARIMA parameters...")
+    auto_model = auto_arima(pdf['close_alpha'], seasonal=False, stepwise=True, suppress_warnings=True, error_action="ignore", max_order=None)
+    
+    # Get the order from auto_arima
+    order = auto_model.order
 
     # Fit ARIMA model
     logging.info("Fitting ARIMA model...")
-    arima_model = forecast.auto_arima(ts_data, stepwise=True, approximation=False)
-
-    # Print model summary
-    logging.info("ARIMA Summary:")
-    print(base.summary(arima_model))
+    model = ARIMA(pdf['close_alpha'], order=order)
+    results = model.fit()
 
     # Generate forecasts
     logging.info("Generating forecasts...")
-    forecasts = forecast.forecast_ar(arima_model, h=15)  # Generate future forecast
-
-    # Extract forecast data
-    forecast_mean = ro.r('as.numeric')(forecasts.rx2('mean'))
-    forecast_lower = ro.r('as.numeric')(forecasts.rx2('lower')[0])
-    forecast_upper = ro.r('as.numeric')(forecasts.rx2('upper')[0])
-
-    # Generate forecast dates
-    forecast_dates = pd.date_range(start=pdf['date'].iloc[-1] + pd.Timedelta(days=1), periods=15, freq='D')
+    forecast = results.forecast(steps=15)
+    forecast_index = pd.date_range(start=pdf.index[-1] + pd.Timedelta(days=1), periods=15)
+    forecast = pd.Series(forecast, index=forecast_index)
 
     # Create a Plotly figure
-    fig = go.Figure(data=[go.Scatter(x=pdf['date'], y=pdf['close_alpha'], name='Actual'),
-                    go.Scatter(x=forecast_dates, y=forecast_mean, name='Forecast')])
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=pdf.index, y=pdf['close_alpha'], name='Actual'))
+    fig.add_trace(go.Scatter(x=forecast.index, y=forecast, name='Forecast'))
 
     # Add zooming and interactive controls
-    fig.update_layout(title='Forecast', xaxis_title='Date', yaxis_title='Close')
+    fig.update_layout(title='ARIMA Forecast', xaxis_title='Date', yaxis_title='Close')
     fig.update_layout(dragmode='pan', 
-                  xaxis=dict(type='date', autorange=True, fixedrange=False),
-                  yaxis=dict(autorange=True, fixedrange=False))
+                      xaxis=dict(type='date', autorange=True, fixedrange=False),
+                      yaxis=dict(autorange=True, fixedrange=False))
     fig.update_xaxes(rangeslider_visible=True, 
-                    rangeselector=dict(
-                        buttons=[
-                            dict(count=1, label='1m', step='month', stepmode='backward'),
-                            dict(count=6, label='6m', step='month', stepmode='backward'),
-                            dict(count=1, label='1y', step='year', stepmode='backward'),
-                            dict(step='all')
-                        ]
-                    ))
+                     rangeselector=dict(
+                         buttons=[
+                             dict(count=1, label='1m', step='month', stepmode='backward'),
+                             dict(count=6, label='6m', step='month', stepmode='backward'),
+                             dict(count=1, label='1y', step='year', stepmode='backward'),
+                             dict(step='all')
+                         ]
+                     ))
 
     # Show the plot
     fig.show()
 
-    # Plot the forecasts
+    # Plot the forecasts using matplotlib
     logging.info("Plotting forecasts...")
-    import matplotlib.pyplot as plt
     plt.figure(figsize=(12, 6))
-    plt.plot(pdf['date'], pdf['close_alpha'], label='Actual')
-    forecast_dates = pd.date_range(start=pdf['date'].iloc[-1] + pd.Timedelta(days=1), periods=15, freq='D')
-    plt.plot(forecast_dates, forecast_mean, label='Forecast', color='red')
-    plt.fill_between(forecast_dates, forecast_lower, forecast_upper, color='red', alpha=0.2)
+    plt.plot(pdf.index, pdf['close_alpha'], label='Actual')
+    plt.plot(forecast.index, forecast, label='Forecast', color='red')
     plt.title('ARIMA Forecast')
     plt.xlabel('Date')
     plt.ylabel('Close Alpha')
     plt.legend()
 
-    
-
     # Ensure directory exists before saving
     os.makedirs('../nxmbers/nxmbers/data/plots/png', exist_ok=True)
-    plt.savefig('../nxmbers/nxmbers/data/plots/png/forecast_plot.png')
+    plt.savefig('../nxmbers/nxmbers/data/plots/png/arima_forecast_plot.png')
 
-    logging.info("Analysis complete! Plot saved as forecast_plot.png")
+    logging.info("Analysis complete! Plot saved as arima_forecast_plot.png")
 
-
-except socket.gaierror as e:
-    logging.error(f"Failed to resolve hostname: {str(e)}")
 except Exception as e:
-    logging.error(f"An unexpected error occurred: {str(e)}")
-except ValueError as ve:
-    logging.error(f"Value error occurred: {str(ve)}")
-except Exception as e:
-    logging.error(f"An unexpected error occurred: {str(e)}")
-
+    logging.error(f"An error occurred: {str(e)}")
 finally:
-    # Ensure database connection is closed if it was opened
+    # Ensure the database connection is closed
     if 'con' in locals() and con is not None:
         DBI.dbDisconnect(con)
+    logging.info("Script execution completed.")

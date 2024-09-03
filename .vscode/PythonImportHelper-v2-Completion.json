@@ -17,11 +17,35 @@
         "documentation": {}
     },
     {
+        "label": "pandas2ri",
+        "importPath": "rpy2.robjects",
+        "description": "rpy2.robjects",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects",
+        "documentation": {}
+    },
+    {
         "label": "importr",
         "importPath": "rpy2.robjects.packages",
         "description": "rpy2.robjects.packages",
         "isExtraImport": true,
         "detail": "rpy2.robjects.packages",
+        "documentation": {}
+    },
+    {
+        "label": "importr",
+        "importPath": "rpy2.robjects.packages",
+        "description": "rpy2.robjects.packages",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects.packages",
+        "documentation": {}
+    },
+    {
+        "label": "localconverter",
+        "importPath": "rpy2.robjects.conversion",
+        "description": "rpy2.robjects.conversion",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects.conversion",
         "documentation": {}
     },
     {
@@ -93,6 +117,22 @@
         "importPath": "matplotlib.pyplot",
         "description": "matplotlib.pyplot",
         "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "ARIMA",
+        "importPath": "statsmodels.tsa.arima.model",
+        "description": "statsmodels.tsa.arima.model",
+        "isExtraImport": true,
+        "detail": "statsmodels.tsa.arima.model",
+        "documentation": {}
+    },
+    {
+        "label": "auto_arima",
+        "importPath": "pmdarima",
+        "description": "pmdarima",
+        "isExtraImport": true,
+        "detail": "pmdarima",
         "documentation": {}
     },
     {
@@ -611,6 +651,78 @@
         "documentation": {}
     },
     {
+        "label": "base",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "base = importr('base')\nDBI = importr('DBI')\nRPostgres = importr('RPostgres')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "DBI",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "DBI = importr('DBI')\nRPostgres = importr('RPostgres')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "RPostgres",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "RPostgres = importr('RPostgres')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_host",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_name",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_user",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_password",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_port",
+        "kind": 5,
+        "importPath": "R.pyod_prophet_ml.R",
+        "description": "R.pyod_prophet_ml.R",
+        "peekOfCode": "db_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_ip,",
+        "detail": "R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
         "label": "clean_data",
         "kind": 2,
         "importPath": "data_cleaning.data_cleaner",
@@ -885,7 +997,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\nprint(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data",
+        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\n# print(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data",
         "detail": "app",
         "documentation": {}
     },
