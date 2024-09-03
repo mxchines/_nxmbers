@@ -136,8 +136,8 @@ try:
     
 
     # Ensure directory exists before saving
-    os.makedirs('../nxmbers/data/plots/png', exist_ok=True)
-    plt.savefig('../nxmbers/data/plots/png/forecast_plot.png')
+    os.makedirs('../nxmbers/nxmbers/data/plots/png', exist_ok=True)
+    plt.savefig('../nxmbers/nxmbers/data/plots/png/forecast_plot.png')
 
     logging.info("Analysis complete! Plot saved as forecast_plot.png")
 

@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from flask_socketio import SocketIO, emit
 import config
 from config import USER_TICKER, USER_START_DATE, USER_END_DATE, USER_INTERVAL, USER_API_SOURCES, BEAM_API_KEY
 import logging
@@ -18,15 +19,17 @@ print(sys.path)
 
 # Import the necessary modules
 from data_ingestion.data_fetcher import main as fetch_data
-from data_cleaning.data_cleaner import clean_data  # Corrected import
+from data_cleaning.data_cleaner import clean_data
 from data_storage.rds_uploader import main as rds_uploader_main
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):
     # Fetch data
+    socketio.emit('update', {'message': 'Starting data fetch...'})
     fetch_data(
         ticker=ticker,
         start_date=start_date,
@@ -35,9 +38,17 @@ def update_config_data(ticker, start_date, end_date, interval, api_sources, beam
         api_sources=api_sources,
         beam_api_key=beam_api_key
     )
+    socketio.emit('update', {'message': 'Data fetched successfully'})
 
     # Clean data
+    socketio.emit('update', {'message': 'Starting data cleaning...'})
     clean_data()
+    socketio.emit('update', {'message': 'Data cleaned successfully'})
+
+    # Upload data to RDS
+    socketio.emit('update', {'message': 'Starting data upload to RDS...'})
+    table_name = rds_uploader_main()
+    socketio.emit('update', {'message': f'Data uploaded to RDS table: {table_name}'})
 
 @app.route('/api/update-config', methods=['POST'])
 def update_config():
@@ -50,7 +61,7 @@ def update_config():
 
     update_config_data(ticker, start_date, end_date, interval, api_sources, BEAM_API_KEY)
 
-    return jsonify({"message": "Data updated successfully"}), 200
+    return jsonify({"message": "Data update process completed"}), 200
 
 @app.route('/')
 def index():
@@ -62,4 +73,4 @@ def index():
                            default_api_sources=config.DEFAULT_API_SOURCES)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app, debug=True)

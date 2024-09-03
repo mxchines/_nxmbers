@@ -144,8 +144,11 @@
        <!-- <input type="checkbox" id="beamSource" name="apiSources" value="beam" {% if 'beam' in default_api_sources %}checked{% endif %}>
         <label for="beamSource">Beam</label> -->
         
-        <div class="sourcelabel"><label for="alphaSource">AlphaVantage</label>
-        <input class="datacheckbox" type="checkbox" id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>
+        <div class="sourcelabel">
+        <!-- <input class="datacheckbox" type="checkbox" id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}> -->
+        <select id="source" name="source">
+            <option id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>AlphaVantage</option>
+        </select>
         </div>
         <button type="submit">Fetch Data</button>
     </form>
@@ -187,6 +190,8 @@
                 });
             });
         });
+
+        
     </script>
 </body>
 </html>

@@ -4,7 +4,8 @@ from psycopg2 import sql
 from datetime import datetime
 import os
 from path_utility import get_data_path
-from tqdm import tqdm  # Importing tqdm for the progress bar
+from tqdm import tqdm
+import threading
 
 # Database connection parameters
 DB_HOST = "numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
@@ -12,6 +13,9 @@ DB_NAME = "nxmbers"
 DB_USER = "mxchinist"
 DB_PASS = "foJzyn-miwhor-bavpo4"
 DB_PORT = "5432"
+
+# Global variable to store current progress value
+progress_value = 0
 
 def create_table_name():
     """Create a table name with current date."""
@@ -46,6 +50,7 @@ def create_table(conn, cursor, table_name, column_types):
 
 def insert_data(conn, cursor, table_name, df):
     """Insert data into the table."""
+    global progress_value
     columns = list(df.columns)
     values = [tuple(x) for x in df.to_numpy()]
 
@@ -55,8 +60,9 @@ def insert_data(conn, cursor, table_name, df):
         sql.SQL(', ').join(sql.Placeholder() * len(columns))
     )
 
-    for value in tqdm(values, desc="Inserting data"):
+    for i, value in tqdm(enumerate(values), desc="Inserting data"):
         cursor.execute(insert_query, value)
+        progress_value = (i + 1) / len(values) * 100
     conn.commit()
 
 def upload_to_rds(file_path):

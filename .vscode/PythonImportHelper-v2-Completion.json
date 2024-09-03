@@ -364,6 +364,15 @@
         "documentation": {}
     },
     {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -393,6 +402,22 @@
         "description": "flask",
         "isExtraImport": true,
         "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "SocketIO",
+        "importPath": "flask_socketio",
+        "description": "flask_socketio",
+        "isExtraImport": true,
+        "detail": "flask_socketio",
+        "documentation": {}
+    },
+    {
+        "label": "emit",
+        "importPath": "flask_socketio",
+        "description": "flask_socketio",
+        "isExtraImport": true,
+        "detail": "flask_socketio",
         "documentation": {}
     },
     {
@@ -752,7 +777,7 @@
         "kind": 2,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )\n    for value in tqdm(values, desc=\"Inserting data\"):",
+        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    global progress_value\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
@@ -779,7 +804,7 @@
         "kind": 5,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "DB_HOST = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\nDB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"",
+        "peekOfCode": "DB_HOST = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\nDB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
@@ -788,7 +813,7 @@
         "kind": 5,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "DB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {",
+        "peekOfCode": "DB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
@@ -797,7 +822,7 @@
         "kind": 5,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "DB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',",
+        "peekOfCode": "DB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
@@ -806,7 +831,7 @@
         "kind": 5,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "DB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',",
+        "peekOfCode": "DB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
@@ -815,7 +840,16 @@
         "kind": 5,
         "importPath": "data_storage.rds_uploader",
         "description": "data_storage.rds_uploader",
-        "peekOfCode": "DB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',",
+        "peekOfCode": "DB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',",
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "progress_value",
+        "kind": 5,
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "peekOfCode": "progress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',",
         "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
@@ -824,7 +858,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key\n    )",
+        "peekOfCode": "def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key",
         "detail": "app",
         "documentation": {}
     },
@@ -833,7 +867,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_config():\n    data = request.json\n    ticker = data.get('ticker', USER_TICKER)\n    start_date = data.get('startDate', USER_START_DATE)\n    end_date = data.get('endDate', USER_END_DATE)\n    interval = data.get('interval', USER_INTERVAL)\n    api_sources = data.get('apiSources', USER_API_SOURCES)\n    update_config_data(ticker, start_date, end_date, interval, api_sources, BEAM_API_KEY)\n    return jsonify({\"message\": \"Data updated successfully\"}), 200\n@app.route('/')",
+        "peekOfCode": "def update_config():\n    data = request.json\n    ticker = data.get('ticker', USER_TICKER)\n    start_date = data.get('startDate', USER_START_DATE)\n    end_date = data.get('endDate', USER_END_DATE)\n    interval = data.get('interval', USER_INTERVAL)\n    api_sources = data.get('apiSources', USER_API_SOURCES)\n    update_config_data(ticker, start_date, end_date, interval, api_sources, BEAM_API_KEY)\n    return jsonify({\"message\": \"Data update process completed\"}), 200\n@app.route('/')",
         "detail": "app",
         "documentation": {}
     },
@@ -842,7 +876,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_sources=config.DEFAULT_API_SOURCES)\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_sources=config.DEFAULT_API_SOURCES)\nif __name__ == '__main__':\n    socketio.run(app, debug=True)",
         "detail": "app",
         "documentation": {}
     },
@@ -851,7 +885,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\nprint(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data  # Corrected import",
+        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\nprint(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data",
         "detail": "app",
         "documentation": {}
     },
@@ -860,7 +894,16 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,",
+        "peekOfCode": "app = Flask(__name__)\nsocketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "socketio",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "socketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,",
         "detail": "app",
         "documentation": {}
     },
@@ -869,7 +912,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,",
         "detail": "app",
         "documentation": {}
     },
