@@ -159,11 +159,35 @@
         "documentation": {}
     },
     {
+        "label": "pandas2ri",
+        "importPath": "rpy2.robjects",
+        "description": "rpy2.robjects",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects",
+        "documentation": {}
+    },
+    {
         "label": "importr",
         "importPath": "rpy2.robjects.packages",
         "description": "rpy2.robjects.packages",
         "isExtraImport": true,
         "detail": "rpy2.robjects.packages",
+        "documentation": {}
+    },
+    {
+        "label": "importr",
+        "importPath": "rpy2.robjects.packages",
+        "description": "rpy2.robjects.packages",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects.packages",
+        "documentation": {}
+    },
+    {
+        "label": "localconverter",
+        "importPath": "rpy2.robjects.conversion",
+        "description": "rpy2.robjects.conversion",
+        "isExtraImport": true,
+        "detail": "rpy2.robjects.conversion",
         "documentation": {}
     },
     {
@@ -181,6 +205,33 @@
         "importPath": "pandas",
         "description": "pandas",
         "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "plotly.graph_objects",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "plotly.graph_objects",
+        "description": "plotly.graph_objects",
+        "detail": "plotly.graph_objects",
         "documentation": {}
     },
     {
@@ -202,12 +253,19 @@
         "documentation": {}
     },
     {
-        "label": "logging",
-        "kind": 6,
+        "label": "ARIMA",
+        "importPath": "statsmodels.tsa.arima.model",
+        "description": "statsmodels.tsa.arima.model",
         "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
+        "detail": "statsmodels.tsa.arima.model",
+        "documentation": {}
+    },
+    {
+        "label": "auto_arima",
+        "importPath": "pmdarima",
+        "description": "pmdarima",
+        "isExtraImport": true,
+        "detail": "pmdarima",
         "documentation": {}
     },
     {
@@ -316,12 +374,116 @@
         "documentation": {}
     },
     {
+        "label": "USER_TICKER",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_START_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_END_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_INTERVAL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_API_SOURCES",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BEAM_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_TICKER",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_START_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_END_DATE",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_INTERVAL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_API_SOURCES",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BEAM_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "requests",
         "description": "requests",
         "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "clean_data",
+        "importPath": "data_cleaner",
+        "description": "data_cleaner",
+        "isExtraImport": true,
+        "detail": "data_cleaner",
         "documentation": {}
     },
     {
@@ -347,6 +509,15 @@
         "description": "tqdm",
         "isExtraImport": true,
         "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
         "documentation": {}
     },
     {
@@ -382,11 +553,19 @@
         "documentation": {}
     },
     {
-        "label": "main",
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
+        "label": "SocketIO",
+        "importPath": "flask_socketio",
+        "description": "flask_socketio",
         "isExtraImport": true,
-        "detail": "data_ingestion.data_fetcher",
+        "detail": "flask_socketio",
+        "documentation": {}
+    },
+    {
+        "label": "emit",
+        "importPath": "flask_socketio",
+        "description": "flask_socketio",
+        "isExtraImport": true,
+        "detail": "flask_socketio",
         "documentation": {}
     },
     {
@@ -395,14 +574,6 @@
         "description": "data_ingestion.data_fetcher",
         "isExtraImport": true,
         "detail": "data_ingestion.data_fetcher",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "importPath": "data_ingestion.data_combiner",
-        "description": "data_ingestion.data_combiner",
-        "isExtraImport": true,
-        "detail": "data_ingestion.data_combiner",
         "documentation": {}
     },
     {
@@ -411,6 +582,38 @@
         "description": "data_cleaning.data_cleaner",
         "isExtraImport": true,
         "detail": "data_cleaning.data_cleaner",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "isExtraImport": true,
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "upload_to_rds",
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "isExtraImport": true,
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "update_config_data",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "importPath": "data_ingestion.data_combiner",
+        "description": "data_ingestion.data_combiner",
+        "isExtraImport": true,
+        "detail": "data_ingestion.data_combiner",
         "documentation": {}
     },
     {
@@ -427,14 +630,6 @@
         "description": "results_storage.results_saver",
         "isExtraImport": true,
         "detail": "results_storage.results_saver",
-        "documentation": {}
-    },
-    {
-        "label": "upload_to_rds",
-        "importPath": "data_storage.rds_uploader",
-        "description": "data_storage.rds_uploader",
-        "isExtraImport": true,
-        "detail": "data_storage.rds_uploader",
         "documentation": {}
     },
     {
@@ -604,7 +799,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "forecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database",
+        "peekOfCode": "forecast = importr('forecast')\nstats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -613,7 +808,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "stats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
+        "peekOfCode": "stats = importr('stats')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -622,7 +817,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -631,7 +826,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -640,7 +835,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -649,7 +844,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,\n                        password=db_password,",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -658,7 +853,7 @@
         "kind": 5,
         "importPath": "nxmbers.R.arima_model.R",
         "description": "nxmbers.R.arima_model.R",
-        "peekOfCode": "db_port = 5432\ntry:\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_host,\n                        dbname=db_name,\n                        user=db_user,\n                        password=db_password,\n                        port=db_port)",
+        "peekOfCode": "db_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_ip,",
         "detail": "nxmbers.R.arima_model.R",
         "documentation": {}
     },
@@ -699,11 +894,83 @@
         "documentation": {}
     },
     {
+        "label": "base",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "base = importr('base')\nDBI = importr('DBI')\nRPostgres = importr('RPostgres')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "DBI",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "DBI = importr('DBI')\nRPostgres = importr('RPostgres')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "RPostgres",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "RPostgres = importr('RPostgres')\n# Database connection parameters\ndb_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_host",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_name",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_user",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_password",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
+        "label": "db_port",
+        "kind": 5,
+        "importPath": "nxmbers.R.pyod_prophet_ml.R",
+        "description": "nxmbers.R.pyod_prophet_ml.R",
+        "peekOfCode": "db_port = 5432\ntry:\n    # Resolve hostname to IP address\n    logging.info(f\"Resolving hostname: {db_host}\")\n    db_ip = socket.gethostbyname(db_host)\n    logging.info(f\"Resolved IP: {db_ip}\")\n    # Connect to the database\n    logging.info(\"Connecting to the database...\")\n    con = DBI.dbConnect(RPostgres.Postgres(),\n                        host=db_ip,",
+        "detail": "nxmbers.R.pyod_prophet_ml.R",
+        "documentation": {}
+    },
+    {
         "label": "clean_data",
         "kind": 2,
         "importPath": "nxmbers.data_cleaning.data_cleaner",
         "description": "nxmbers.data_cleaning.data_cleaner",
-        "peekOfCode": "def clean_data():\n    # Define the input path\n    input_file_path = get_data_path(__file__, 'combined_data.csv')\n    # Generate the timestamp\n    timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')\n    # Define the directory and the file name\n    output_dir = os.path.join(os.getcwd(), '..', 'nxmbers', 'data', 'cleaned')  \n    output_file_name = f'cleaned_data-{timestamp}.csv'\n    output_file_path = os.path.join(output_dir, output_file_name)\n    # Load the combined market data",
+        "peekOfCode": "def clean_data():\n    # Define the input directory\n    input_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'csv')\n    # Define the output directory\n    output_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'cleaned')\n    # Iterate over the CSV files in the input directory\n    for file in os.listdir(input_dir):\n        if file.endswith('.csv'):\n            # Construct the full file path\n            input_file_path = os.path.join(input_dir, file)",
         "detail": "nxmbers.data_cleaning.data_cleaner",
         "documentation": {}
     },
@@ -776,6 +1043,15 @@
         "importPath": "nxmbers.data_ingestion.data_fetcher",
         "description": "nxmbers.data_ingestion.data_fetcher",
         "peekOfCode": "def main(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    data_fetched = False\n    for source in api_sources:\n        if source == 'beam':\n            beam_data = fetch_beam_data(ticker, start_date, end_date, interval, beam_api_key)\n            if beam_data is not None:\n                save_data(beam_data, ticker, 'beam')\n                data_fetched = True\n            else:\n                logger.warning(\"Falling back to Alpha Vantage due to Beam API failure\")",
+        "detail": "nxmbers.data_ingestion.data_fetcher",
+        "documentation": {}
+    },
+    {
+        "label": "current_dir",
+        "kind": 5,
+        "importPath": "nxmbers.data_ingestion.data_fetcher",
+        "description": "nxmbers.data_ingestion.data_fetcher",
+        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the path to the data_cleaning directory\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\n# Now you can import data_cleaner\nfrom data_cleaner import clean_data\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef fetch_beam_data(ticker, start_date, end_date, interval, api_key):\n    beam_url = 'https://api.beamapi.com/data/fundamentals/us/sec/form_4/v1'\n    transport = RequestsHTTPTransport(",
         "detail": "nxmbers.data_ingestion.data_fetcher",
         "documentation": {}
     },
@@ -856,7 +1132,7 @@
         "kind": 2,
         "importPath": "nxmbers.data_storage.rds_uploader",
         "description": "nxmbers.data_storage.rds_uploader",
-        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )\n    for value in tqdm(values, desc=\"Inserting data\"):",
+        "peekOfCode": "def insert_data(conn, cursor, table_name, df):\n    \"\"\"Insert data into the table.\"\"\"\n    global progress_value\n    columns = list(df.columns)\n    values = [tuple(x) for x in df.to_numpy()]\n    insert_query = sql.SQL(\"INSERT INTO {} ({}) VALUES ({})\").format(\n        sql.Identifier(table_name),\n        sql.SQL(', ').join(map(sql.Identifier, columns)),\n        sql.SQL(', ').join(sql.Placeholder() * len(columns))\n    )",
         "detail": "nxmbers.data_storage.rds_uploader",
         "documentation": {}
     },
@@ -870,11 +1146,20 @@
         "documentation": {}
     },
     {
+        "label": "main",
+        "kind": 2,
+        "importPath": "nxmbers.data_storage.rds_uploader",
+        "description": "nxmbers.data_storage.rds_uploader",
+        "peekOfCode": "def main():\n    # Define the directory containing the cleaned CSV files\n    cleaned_dir = os.path.join(os.path.dirname(__file__), '..', 'nxmbers', 'data', 'cleaned')\n    # Iterate over the cleaned CSV files\n    for file in os.listdir(cleaned_dir):\n        if file.endswith('.csv'):\n            file_path = os.path.join(cleaned_dir, file)\n            print(f\"Uploading {file} to RDS...\")\n            upload_to_rds(file_path)\nif __name__ == \"__main__\":",
+        "detail": "nxmbers.data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
         "label": "DB_HOST",
         "kind": 5,
         "importPath": "nxmbers.data_storage.rds_uploader",
         "description": "nxmbers.data_storage.rds_uploader",
-        "peekOfCode": "DB_HOST = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\nDB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"",
+        "peekOfCode": "DB_HOST = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\nDB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"",
         "detail": "nxmbers.data_storage.rds_uploader",
         "documentation": {}
     },
@@ -883,7 +1168,7 @@
         "kind": 5,
         "importPath": "nxmbers.data_storage.rds_uploader",
         "description": "nxmbers.data_storage.rds_uploader",
-        "peekOfCode": "DB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {",
+        "peekOfCode": "DB_NAME = \"nxmbers\"\nDB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):",
         "detail": "nxmbers.data_storage.rds_uploader",
         "documentation": {}
     },
@@ -892,7 +1177,7 @@
         "kind": 5,
         "importPath": "nxmbers.data_storage.rds_uploader",
         "description": "nxmbers.data_storage.rds_uploader",
-        "peekOfCode": "DB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',",
+        "peekOfCode": "DB_USER = \"mxchinist\"\nDB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"",
         "detail": "nxmbers.data_storage.rds_uploader",
         "documentation": {}
     },
@@ -901,7 +1186,7 @@
         "kind": 5,
         "importPath": "nxmbers.data_storage.rds_uploader",
         "description": "nxmbers.data_storage.rds_uploader",
-        "peekOfCode": "DB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',",
+        "peekOfCode": "DB_PASS = \"foJzyn-miwhor-bavpo4\"\nDB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {",
         "detail": "nxmbers.data_storage.rds_uploader",
         "documentation": {}
     },
@@ -910,8 +1195,26 @@
         "kind": 5,
         "importPath": "nxmbers.data_storage.rds_uploader",
         "description": "nxmbers.data_storage.rds_uploader",
-        "peekOfCode": "DB_PORT = \"5432\"\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',",
+        "peekOfCode": "DB_PORT = \"5432\"\n# Global variable to store current progress value\nprogress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',",
         "detail": "nxmbers.data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "progress_value",
+        "kind": 5,
+        "importPath": "nxmbers.data_storage.rds_uploader",
+        "description": "nxmbers.data_storage.rds_uploader",
+        "peekOfCode": "progress_value = 0\ndef create_table_name():\n    \"\"\"Create a table name with current date.\"\"\"\n    return f\"market_data_{datetime.now().strftime('%Y_%m_%d_%H%M%S')}\"\ndef get_column_types(df):\n    \"\"\"Map pandas dtypes to PostgreSQL column types.\"\"\"\n    type_mapping = {\n        'int64': 'INTEGER',\n        'float64': 'FLOAT',\n        'object': 'TEXT',",
+        "detail": "nxmbers.data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "update_config_data",
+        "kind": 2,
+        "importPath": "nxmbers.app",
+        "description": "nxmbers.app",
+        "peekOfCode": "def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key",
+        "detail": "nxmbers.app",
         "documentation": {}
     },
     {
@@ -919,7 +1222,7 @@
         "kind": 2,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "def update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCES = data.get('apiSources', config.DEFAULT_API_SOURCES)\n    try:\n        result = fetch_data(\n            ticker=config.USER_TICKER,",
+        "peekOfCode": "def update_config():\n    data = request.json\n    ticker = data.get('ticker', USER_TICKER)\n    start_date = data.get('startDate', USER_START_DATE)\n    end_date = data.get('endDate', USER_END_DATE)\n    interval = data.get('interval', USER_INTERVAL)\n    api_sources = data.get('apiSources', USER_API_SOURCES)\n    update_config_data(ticker, start_date, end_date, interval, api_sources, BEAM_API_KEY)\n    return jsonify({\"message\": \"Data update process completed\"}), 200\n@app.route('/')",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -928,7 +1231,16 @@
         "kind": 2,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_sources=config.DEFAULT_API_SOURCES)\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template('index.html', \n                           default_ticker=config.DEFAULT_TICKER,\n                           default_start_date=config.DEFAULT_START_DATE,\n                           default_end_date=config.DEFAULT_END_DATE,\n                           default_interval=config.DEFAULT_INTERVAL,\n                           default_api_sources=config.DEFAULT_API_SOURCES)\nif __name__ == '__main__':\n    socketio.run(app, debug=True)",
+        "detail": "nxmbers.app",
+        "documentation": {}
+    },
+    {
+        "label": "current_dir",
+        "kind": 5,
+        "importPath": "nxmbers.app",
+        "description": "nxmbers.app",
+        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\n# print(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -937,7 +1249,16 @@
         "kind": 5,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "app = Flask(__name__)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)",
+        "peekOfCode": "app = Flask(__name__)\nsocketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,",
+        "detail": "nxmbers.app",
+        "documentation": {}
+    },
+    {
+        "label": "socketio",
+        "kind": 5,
+        "importPath": "nxmbers.app",
+        "description": "nxmbers.app",
+        "peekOfCode": "socketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -946,7 +1267,7 @@
         "kind": 5,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "logger = logging.getLogger(__name__)\n@app.route('/api/update-config', methods=['POST'])\ndef update_config():\n    data = request.json\n    config.USER_TICKER = data.get('ticker', config.DEFAULT_TICKER)\n    config.USER_START_DATE = data.get('startDate', config.DEFAULT_START_DATE)\n    config.USER_END_DATE = data.get('endDate', config.DEFAULT_END_DATE)\n    config.USER_INTERVAL = data.get('interval', config.DEFAULT_INTERVAL)\n    config.USER_API_SOURCES = data.get('apiSources', config.DEFAULT_API_SOURCES)\n    try:",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -1117,7 +1438,7 @@
         "kind": 2,
         "importPath": "nxmbers.main",
         "description": "nxmbers.main",
-        "peekOfCode": "def main():\n    # Fetch data\n    fetch_data(\n        ticker=config.USER_TICKER,\n        start_date=config.USER_START_DATE,\n        end_date=config.USER_END_DATE,\n        interval=config.USER_INTERVAL,\n        api_sources=config.USER_API_SOURCES,\n        beam_api_key=config.BEAM_API_KEY\n    )",
+        "peekOfCode": "def main():\n    # Fetch data\n    update_config_data(\n        ticker=config.USER_TICKER,\n        start_date=config.USER_START_DATE,\n        end_date=config.USER_END_DATE,\n        interval=config.USER_INTERVAL,\n        api_sources=config.USER_API_SOURCES,\n        beam_api_key=config.BEAM_API_KEY\n    )",
         "detail": "nxmbers.main",
         "documentation": {}
     },
@@ -1142,19 +1463,19 @@
     {
         "label": "print_directory_tree",
         "kind": 2,
-        "importPath": "nxmbers.tree",
-        "description": "nxmbers.tree",
+        "importPath": "tree",
+        "description": "tree",
         "peekOfCode": "def print_directory_tree(path, prefix=\"\"):\n    \"\"\"Recursively prints a directory tree, ignoring hidden files.\"\"\"\n    entries = [entry for entry in os.listdir(path) if not entry.startswith('.')]\n    entries.sort() \n    num_entries = len(entries)\n    for index, entry in enumerate(entries):\n        entry_path = os.path.join(path, entry)\n        if os.path.isdir(entry_path):\n            # Directory\n            connector = \"└── \" if index == num_entries - 1 else \"├── \"",
-        "detail": "nxmbers.tree",
+        "detail": "tree",
         "documentation": {}
     },
     {
         "label": "start_path",
         "kind": 5,
-        "importPath": "nxmbers.tree",
-        "description": "nxmbers.tree",
+        "importPath": "tree",
+        "description": "tree",
         "peekOfCode": "start_path = \".\"\nprint_directory_tree(start_path)",
-        "detail": "nxmbers.tree",
+        "detail": "tree",
         "documentation": {}
     }
 ]
