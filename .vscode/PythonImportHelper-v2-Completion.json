@@ -1465,7 +1465,7 @@
         "kind": 2,
         "importPath": "tree",
         "description": "tree",
-        "peekOfCode": "def print_directory_tree(path, prefix=\"\"):\n    \"\"\"Recursively prints a directory tree, ignoring hidden files.\"\"\"\n    entries = [entry for entry in os.listdir(path) if not entry.startswith('.')]\n    entries.sort() \n    num_entries = len(entries)\n    for index, entry in enumerate(entries):\n        entry_path = os.path.join(path, entry)\n        if os.path.isdir(entry_path):\n            # Directory\n            connector = \"└── \" if index == num_entries - 1 else \"├── \"",
+        "peekOfCode": "def print_directory_tree(path, prefix=\"\"):\n    \"\"\"Recursively prints a directory tree, excluding hidden files.\"\"\"\n    # Get only non-hidden entries\n    entries = [entry for entry in os.listdir(path) if not entry.startswith('.')]\n    # Sort the entries\n    entries.sort()\n    # Get the number of entries\n    num_entries = len(entries)\n    for index, entry in enumerate(entries):\n        # Construct the full path of the entry",
         "detail": "tree",
         "documentation": {}
     },

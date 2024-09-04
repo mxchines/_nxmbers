@@ -1,5 +1,4 @@
 python3 tree.py
-│   │           │   │   │   │   ├── __init__.py
 │   │           │   │   │   │   ├── __pycache__
 │   │           │   │   │   │   │   ├── __init__.cpython-312.pyc
 │   │           │   │   │   │   │   ├── _svds.cpython-312.pyc
@@ -9059,6 +9058,7 @@ python3 tree.py
 │           └── man1
 │               ├── ipython.1
 │               └── ttx.1
+├── directory.md
 ├── directory.txt
 ├── nxmbers
 │   ├── R
