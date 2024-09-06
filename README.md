@@ -18,8 +18,31 @@ Nxmbers is a comprehensive stock market data analysis and prediction system. It 
 
 
 README.md
-nxmbers/ ├── abacus/ # Python 3.12 environment │ └── calculator/ # Python 3.8 environment for stable NumPy 1.20 ├── data_cleaning/ │ └── data_cleaner.py # Data cleaning and preprocessing script ├── data_ingestion/ │ └── data_fetcher.py # Data fetching from multiple sources ├── data_storage/ │ └── rds_uploader.py # Script for uploading data to Amazon RDS ├── nxmbers/ # Main project directory │ ├── data/ │ │ ├── csv/ # Raw CSV data │ │ └── cleaned/ # Cleaned CSV data │ └── ... ├── prediction_model/ # Machine learning models ├── R/ # R scripts for additional analysis ├── results_storage/ # Storage for prediction results ├── sql/ # SQL scripts and database-related files ├── static/ # Static files for web interface ├── templates/ # HTML templates for web interface ├── app.py # Flask web application ├── config.py # Configuration settings ├── main.py # Main execution script └── requirements.txt # Python dependencies
-
+nxmbers/
+├── README.md
+├── abacus/                    # Python 3.12 environment
+│   └── calculator/            # Python 3.8 environment for stable NumPy 1.20
+├── data_cleaning/
+│   └── data_cleaner.py        # Data cleaning and preprocessing script
+├── data_ingestion/
+│   └── data_fetcher.py        # Data fetching from multiple sources
+├── data_storage/
+│   └── rds_uploader.py        # Script for uploading data to Amazon RDS
+├── nxmbers/                   # Main project directory
+│   ├── data/
+│   │   ├── csv/               # Raw CSV data
+│   │   └── cleaned/           # Cleaned CSV data
+│   └── ...
+├── prediction_model/          # Machine learning models
+├── R/                         # R scripts for additional analysis
+├── results_storage/           # Storage for prediction results
+├── sql/                       # SQL scripts and database-related files
+├── static/                    # Static files for web interface
+├── templates/                 # HTML templates for web interface
+├── app.py                     # Flask web application
+├── config.py                  # Configuration settings
+├── main.py                    # Main execution script
+└── requirements.txt           # Python dependencies
 
 ## Setup and Installation
 
