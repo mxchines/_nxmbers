@@ -19,6 +19,7 @@ Nxmbers is a comprehensive stock market data analysis and prediction system. It 
 
 README.md
 nxmbers/
+│
 ├── README.md
 ├── abacus/                    # Python 3.12 environment
 │   └── calculator/            # Python 3.8 environment for stable NumPy 1.20
@@ -43,7 +44,6 @@ nxmbers/
 ├── config.py                  # Configuration settings
 ├── main.py                    # Main execution script
 └── requirements.txt           # Python dependencies
-
 ## Setup and Installation
 
 1. Clone the repository:
