@@ -15,64 +15,68 @@ Nxmbers is a comprehensive stock market data analysis and prediction system. It 
 
 ## Project Structure
 
-
-
-README.md
+```
 nxmbers/
 │
-├── README.md
+├── README.md                  # Project overview and setup instructions
+├── CONTRIBUTING.md            # Guidelines for contributing to the project
+├── LICENSE.md                 # MIT License details
+│
 ├── abacus/                    # Python 3.12 environment
 │   └── calculator/            # Python 3.8 environment for stable NumPy 1.20
+│
 ├── data_cleaning/
 │   └── data_cleaner.py        # Data cleaning and preprocessing script
+│
 ├── data_ingestion/
 │   └── data_fetcher.py        # Data fetching from multiple sources
+│
 ├── data_storage/
 │   └── rds_uploader.py        # Script for uploading data to Amazon RDS
+│
 ├── nxmbers/                   # Main project directory
 │   ├── data/
 │   │   ├── csv/               # Raw CSV data
 │   │   └── cleaned/           # Cleaned CSV data
 │   └── ...
+│
 ├── prediction_model/          # Machine learning models
 ├── R/                         # R scripts for additional analysis
 ├── results_storage/           # Storage for prediction results
 ├── sql/                       # SQL scripts and database-related files
 ├── static/                    # Static files for web interface
 ├── templates/                 # HTML templates for web interface
+│
 ├── app.py                     # Flask web application
 ├── config.py                  # Configuration settings
 ├── main.py                    # Main execution script
 └── requirements.txt           # Python dependencies
+```
+
 ## Setup and Installation
 
 1. Clone the repository:
-
-Copy
-
-Apply
-
-git clone https://github.com/yourusername/nxmbers.git cd nxmbers
-
+   ```
+   git clone https://github.com/yourusername/nxmbers.git
+   cd nxmbers
+   ```
 
 2. Set up virtual environments:
-- For the main project (Python 3.12):
-  ```
-  python3.12 -m venv abacus
-  source abacus/bin/activate
-  ```
-- For stable NumPy 1.20 (Python 3.8):
-  ```
-  python3.8 -m venv abacus/calculator
-  source abacus/calculator/bin/activate
-  ```
+   - For the main project (Python 3.12):
+     ```
+     python3.12 -m venv abacus
+     source abacus/bin/activate
+     ```
+   - For stable NumPy 1.20 (Python 3.8):
+     ```
+     python3.8 -m venv abacus/calculator
+     source abacus/calculator/bin/activate
+     ```
 
 3. Install dependencies:
-
-
-
-pip install -r requirements.txt
-
+   ```
+   pip install -r requirements.txt
+   ```
 
 4. Set up environment variables for API keys and database credentials.
 
@@ -81,10 +85,9 @@ pip install -r requirements.txt
 ## Usage
 
 1. Start the Flask web application:
-
-
-python app.py
-
+   ```
+   python app.py
+   ```
 
 2. Access the web interface at `http://localhost:5000`
 
@@ -94,11 +97,11 @@ python app.py
 
 ## Data Pipeline
 
-1. Data Fetching: Retrieves stock market data from Beam API and Alpha Vantage.
-2. Data Cleaning: Preprocesses the raw data, handling missing values and standardizing formats.
-3. Data Storage: Uploads cleaned data to Amazon RDS PostgreSQL database.
-4. Prediction: Applies machine learning models to generate stock price forecasts.
-5. Results Storage: Saves prediction results for further analysis and visualization.
+1. **Data Fetching**: Retrieves stock market data from Beam API and Alpha Vantage.
+2. **Data Cleaning**: Preprocesses the raw data, handling missing values and standardizing formats.
+3. **Data Storage**: Uploads cleaned data to Amazon RDS PostgreSQL database.
+4. **Prediction**: Applies machine learning models to generate stock price forecasts.
+5. **Results Storage**: Saves prediction results for further analysis and visualization.
 
 ## Contributing
 
