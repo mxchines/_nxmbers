@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXMBERS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .loading {
+            display: none;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        form {
+            /* ... other form styles ... */
+            text-align: left; 
+        }
+
+        #yahoo, #alpha { /* Target checkboxes by ID */
+            /* display: inline-block; */
+            vertical-align: left;
+            margin-right: 0%;
+            text-align: left; /* Ensure text within the checkbox container is left-aligned */
+        }
+        label {
+            display: inline-block;
+            margin-left: 10px;
+
+        }
+        .datacheckbox {
+            margin-left: 0px;
+            position: relative;
+            display: block;
+        }
+        .sourcelabel {
+            text-align: center;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>NXMBERS</h1>
+    <form id="dataFetchForm">
+        <label for="ticker">Ticker:</label>
+        <input type="text" id="ticker" name="ticker" value="{{ default_ticker }}" required><br><br>
+        
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" value="{{ default_start_date }}" required><br><br>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" value="{{ default_end_date }}" required><br><br>
+        
+        <label for="interval">Interval:</label>
+        <select id="interval" name="interval">
+            <option value="1day" {% if default_interval == '1day' %}selected{% endif %}>1 Day</option>
+            <option value="1hour" {% if default_interval == '1hour' %}selected{% endif %}>1 Hour</option>
+            <option value="1min" {% if default_interval == '1min' %}selected{% endif %}>1 Minute</option>
+        </select><br><br>
+        
+        <label>Source:</label><br>
+       <!-- <input type="checkbox" id="beamSource" name="apiSources" value="beam" {% if 'beam' in default_api_sources %}checked{% endif %}>
+        <label for="beamSource">Beam</label> -->
+        
+        <div class="sourcelabel">
+        <!-- <input class="datacheckbox" type="checkbox" id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}> -->
+        <select id="source" name="source">
+            <option id="alphaSource" name="apiSources" value="alpha" {% if 'alpha' in default_api_sources %}checked{% endif %}>AlphaVantage</option>
+        </select>
+        </div>
+        <button type="submit">Fetch Data</button>
+    </form>
+
+    <div id="message"></div>
+    <div class="loading">Loading...</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataFetchForm').submit(function(e) {
+                e.preventDefault();
+                $('.loading').show();
+                $('#message').text('');
+
+                var apiSources = [];
+                $('input[name="apiSources"]:checked').each(function() {
+                apiSources.push($(this).val());
+                });
+
+                $.ajax({
+                url: '/api/update-config',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    ticker: $('#ticker').val(),
+                    startDate: $('#startDate').val(),
+                    endDate: $('#endDate').val(),
+                    interval: $('#interval').val(),
+                    apiSources: apiSources
+                }),
+                success: function(response) {
+                    $('.loading').hide();
+                    $('#message').text(response.message);
+                },
+                error: function(xhr, status, error) {
+                    $('.loading').hide();
+                    $('#message').text('Error:'+ xhr.responseJSON.error);
+                }
+                });
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

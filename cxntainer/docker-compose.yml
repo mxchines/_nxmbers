@@ -1,0 +1,43 @@
+services:
+  abacus:
+    build:
+      context: ./abacus
+      dockerfile: Dockerfile.abacus
+    container_name: abacus_container
+    volumes:
+      - ./abacus:/app
+    networks:
+      - app-network
+
+  calculator:
+    build:
+      context: ./calculator
+      dockerfile: Dockerfile.calculator
+    container_name: calculator_container
+    volumes:
+      - ./calculator:/app
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: ./main_app
+      dockerfile: Dockerfile.app
+    container_name: nx_app_container
+    depends_on:
+      - abacus
+      - calculator
+    volumes:
+      - ./main_app:/app
+      - ./shared_data:/app/shared_data
+    environment:
+      ABACUS_HOST: abacus_container
+      CALCULATOR_HOST: calculator_container
+    networks:
+      - app-network
+    ports:
+      - "8080:8080"
+
+networks:
+  app-network:
+    driver: bridge

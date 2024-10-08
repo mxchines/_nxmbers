@@ -1,0 +1,36 @@
+# Dockerfile.calculator
+
+FROM python:3.8-slim
+
+# Install necessary dependencies for R and rpy2
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        r-base \
+        r-base-dev \
+        build-essential \
+        libssl-dev \
+        libcurl4-openssl-dev \
+        libffi-dev \
+        && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Create a virtual environment outside of /app
+RUN python -m venv /venv
+
+# Copy the requirements file into the container
+COPY requirements_calculator.txt .
+
+# Install dependencies in the virtual environment
+RUN /venv/bin/pip install --upgrade pip && \
+    /venv/bin/pip install -r requirements_calculator.txt
+
+# Set the environment variable to use the virtual environment
+ENV PATH="/venv/bin:$PATH"
+
+# Copy the application code into the container
+COPY . .
+
+# Set the command to run your application
+CMD ["python", "calculator.py"]
