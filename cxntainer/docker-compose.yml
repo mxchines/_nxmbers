@@ -3,36 +3,42 @@ services:
     build:
       context: ./abacus
       dockerfile: Dockerfile.abacus
-    container_name: abacus_container
-    volumes:
-      - ./abacus:/app
     networks:
       - app-network
+    ports:
+      - "5000:5000"  # Adjust to the port your abacus service uses
+    volumes:
+      - ./abacus:/app
+    # If you have environment variables, define them here. Otherwise, remove this section.
+    # environment:
+    #   VARIABLE_NAME: value
 
   calculator:
     build:
       context: ./calculator
       dockerfile: Dockerfile.calculator
-    container_name: calculator_container
-    volumes:
-      - ./calculator:/app
     networks:
       - app-network
+    ports:
+      - "5001:5001"  # Adjust to the port your calculator service uses
+    volumes:
+      - ./calculator:/app
+    # If you have environment variables, define them here. Otherwise, remove this section.
+    # environment:
+    #   VARIABLE_NAME: value
 
   app:
     build:
       context: ./main_app
       dockerfile: Dockerfile.app
-    container_name: nx_app_container
     depends_on:
       - abacus
       - calculator
     volumes:
       - ./main_app:/app
-      - ./shared_data:/app/shared_data
     environment:
-      ABACUS_HOST: abacus_container
-      CALCULATOR_HOST: calculator_container
+      ABACUS_HOST: abacus
+      CALCULATOR_HOST: calculator
     networks:
       - app-network
     ports:

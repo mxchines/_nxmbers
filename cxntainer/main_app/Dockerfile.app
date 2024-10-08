@@ -2,25 +2,36 @@
 
 FROM python:3.12-slim
 
-# Install necessary dependencies for your app service
+# Install necessary system packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
-        # Add other necessary system packages \
-    && rm -rf /var/lib/apt/lists/*
+        libpq-dev \
+        r-base \
+        r-base-dev \
+        libssl-dev \
+        libcurl4-openssl-dev \
+        libffi-dev \
+        && rm -rf /var/lib/apt/lists/*
+
+# Verify R installation
+RUN R --version
+
+# Optionally set R_HOME environment variable
+ENV R_HOME /usr/lib/R
 
 # Set the working directory
 WORKDIR /app
 
+# Copy the requirements file into the container
+COPY requirements.txt .
+
 # Create a virtual environment
 RUN python -m venv /venv
 
-# Copy the requirements file into the container
-COPY requirements_app.txt .
-
 # Upgrade pip and install Python dependencies
 RUN /venv/bin/pip install --upgrade pip && \
-    /venv/bin/pip install -r requirements_app.txt
+    /venv/bin/pip install -r requirements.txt
 
 # Copy the application code into the container
 COPY . .
@@ -28,5 +39,5 @@ COPY . .
 # Set the environment variable to use the virtual environment
 ENV PATH="/venv/bin:$PATH"
 
-# Set the command to run the application
+# Set the command to run your application
 CMD ["python", "app.py"]
