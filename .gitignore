@@ -1,0 +1,59 @@
+# Python virtual environments
+abacus/env/
+abacus/calculator/env/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# IDE specific folders and settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Data directories
+nxmbers/data/csv/
+nxmbers/data/cleaned/
+
+# Results storage
+results_storage/
+
+# Static and temporary upload folders
+static/tmp/
+
+# R environment and additional generated files
+.Rhistory
+.Rproj.user/
+
+# Compiled SQL scripts or backups
+sql/*.sqlc
+
+# General backup or archive files
+*.bak
+*.tar
+*.zip
+*.gz
+
+# Node modules (if using JS for the front end)
+node_modules/
+
+# Ignore any secret keys or credentials files (if they exist)
+config.py.secret

@@ -1,0 +1,78 @@
+├── abacus
+│   ├── bin
+│   │   ├── Activate.ps1
+│   │   ├── activate
+│   │   ├── activate.csh
+│   │   ├── activate.fish
+│   │   └── cygdb
+│   │   └── ... 39 more files omitted
+│   ├── calculator
+│   │   ├── bin
+│   │   ├── etc
+│   │   ├── include
+│   │   ├── lib
+│   │   ├── share
+│   │   ├── pyvenv.cfg
+│   │   └── requirements.txt
+│   ├── etc
+│   │   └── jupyter
+│   ├── include
+│   │   └── site
+│   ├── lib
+│   │   └── python3.12
+│   ├── pmdarima
+│   │   └── VERSION
+│   ├── share
+│       ├── jupyter
+│       └── man
+│   └── pyvenv.cfg
+├── nxmbers
+│   ├── R
+│   │   ├── arima_model.R
+│   │   ├── arima_model.R.py
+│   │   ├── arima_model.R.py.txt
+│   │   ├── kalman_filter.R
+│   │   └── kalman_filter.R.py
+│   │   └── ... 1 more files omitted
+│   ├── data
+│   │   └── plots
+│   ├── data_cleaning
+│   │   ├── __init__.py
+│   │   ├── data_cleaner.py
+│   │   └── path_utility.py
+│   ├── data_ingestion
+│   │   ├── __init__.py
+│   │   ├── data_combiner.py
+│   │   ├── data_fetcher.py
+│   │   └── path_utility.py
+│   ├── data_storage
+│   │   ├── __init__.py
+│   │   ├── path_utility.py
+│   │   └── rds_uploader.py
+│   ├── nxmbers
+│   │   └── data
+│   ├── prediction_model
+│   │   ├── __init__.py
+│   │   └── r_model_executor.py
+│   ├── results_storage
+│   │   ├── __init__.py
+│   │   └── results_saver.py
+│   ├── snippetbin
+│   │   └── # Load required libraries.r
+│   ├── templates
+│       ├── index.html
+│       └── index.txt
+│   ├── app.py
+│   ├── config.py
+│   ├── flow.png
+│   ├── main.py
+│   └── path_utility.py
+│   └── ... 2 more files omitted
+├── sql
+    └── public.market_data_2024_09_02_075500.sql
+├── README.md
+├── directory.md
+├── directory.txt
+├── nxmbers.code-workspace
+└── requirements.txt
+└── ... 2 more files omitted

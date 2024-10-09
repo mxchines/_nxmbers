@@ -1,9 +1,9 @@
 # config.py
-db_host = "numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com"
+db_host = "osmx-database-osmx.g.aivencloud.com"
 db_name = "nxmbers"
-db_user = "mxchinist"
-db_password = "foJzyn-miwhor-bavpo4"
-db_port = 5432
+db_user = "avnadmin"
+db_password = "AVNS_mn2Gg7v_WKqKdhOaUCz"
+db_port = 25719
 
 forecast_horizon = 12
 # ... other variables
