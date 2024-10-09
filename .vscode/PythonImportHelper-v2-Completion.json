@@ -333,6 +333,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "TimeSeries",
         "importPath": "alpha_vantage.timeseries",
         "description": "alpha_vantage.timeseries",
@@ -570,34 +578,26 @@
     },
     {
         "label": "main",
-        "importPath": "data_ingestion.data_fetcher",
-        "description": "data_ingestion.data_fetcher",
+        "importPath": "nxmbers.data_ingestion.data_fetcher",
+        "description": "nxmbers.data_ingestion.data_fetcher",
         "isExtraImport": true,
-        "detail": "data_ingestion.data_fetcher",
+        "detail": "nxmbers.data_ingestion.data_fetcher",
         "documentation": {}
     },
     {
         "label": "clean_data",
-        "importPath": "data_cleaning.data_cleaner",
-        "description": "data_cleaning.data_cleaner",
+        "importPath": "nxmbers.data_cleaning.data_cleaner",
+        "description": "nxmbers.data_cleaning.data_cleaner",
         "isExtraImport": true,
-        "detail": "data_cleaning.data_cleaner",
+        "detail": "nxmbers.data_cleaning.data_cleaner",
         "documentation": {}
     },
     {
         "label": "main",
-        "importPath": "data_storage.rds_uploader",
-        "description": "data_storage.rds_uploader",
+        "importPath": "nxmbers.data_storage.rds_uploader",
+        "description": "nxmbers.data_storage.rds_uploader",
         "isExtraImport": true,
-        "detail": "data_storage.rds_uploader",
-        "documentation": {}
-    },
-    {
-        "label": "upload_to_rds",
-        "importPath": "data_storage.rds_uploader",
-        "description": "data_storage.rds_uploader",
-        "isExtraImport": true,
-        "detail": "data_storage.rds_uploader",
+        "detail": "nxmbers.data_storage.rds_uploader",
         "documentation": {}
     },
     {
@@ -630,6 +630,38 @@
         "description": "results_storage.results_saver",
         "isExtraImport": true,
         "detail": "results_storage.results_saver",
+        "documentation": {}
+    },
+    {
+        "label": "upload_to_rds",
+        "importPath": "data_storage.rds_uploader",
+        "description": "data_storage.rds_uploader",
+        "isExtraImport": true,
+        "detail": "data_storage.rds_uploader",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
@@ -1213,7 +1245,7 @@
         "kind": 2,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,\n        beam_api_key=beam_api_key",
+        "peekOfCode": "def update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    try:\n        # Fetch data\n        socketio.emit('update', {'message': 'Starting data fetch...'})\n        fetch_data(\n            ticker=ticker,\n            start_date=start_date,\n            end_date=end_date,\n            interval=interval,\n            api_sources=api_sources,",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -1236,11 +1268,11 @@
         "documentation": {}
     },
     {
-        "label": "current_dir",
+        "label": "PROJECT_ROOT",
         "kind": 5,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "current_dir = os.path.dirname(__file__)\n# Add the necessary paths to sys.path\nsys.path.insert(0, os.path.join(current_dir, '../data_cleaning'))\nsys.path.insert(0, os.path.join(current_dir, '../data_storage'))\nsys.path.insert(0, os.path.join(current_dir, '../data_ingestion'))\n# Print out the sys.path variable\n# print(sys.path)\n# Import the necessary modules\nfrom data_ingestion.data_fetcher import main as fetch_data\nfrom data_cleaning.data_cleaner import clean_data",
+        "peekOfCode": "PROJECT_ROOT = Path(__file__).parent.parent.absolute()\n# Add the necessary paths to sys.path using Path\nsys.path.insert(0, str(PROJECT_ROOT))\n# Import the necessary modules\nfrom nxmbers.data_ingestion.data_fetcher import main as fetch_data\nfrom nxmbers.data_cleaning.data_cleaner import clean_data\nfrom nxmbers.data_storage.rds_uploader import main as rds_uploader_main\napp = Flask(__name__)\nsocketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -1249,7 +1281,7 @@
         "kind": 5,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "app = Flask(__name__)\nsocketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,",
+        "peekOfCode": "app = Flask(__name__)\nsocketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n# Create necessary directories if they don't exist\ndata_dir = PROJECT_ROOT / \"nxmbers\" / \"data\"\ncsv_dir = data_dir / \"csv\"\nplots_dir = data_dir / \"plots\"\nfor directory in [data_dir, csv_dir, plots_dir]:\n    directory.mkdir(parents=True, exist_ok=True)",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -1258,7 +1290,7 @@
         "kind": 5,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "socketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,",
+        "peekOfCode": "socketio = SocketIO(app)\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n# Create necessary directories if they don't exist\ndata_dir = PROJECT_ROOT / \"nxmbers\" / \"data\"\ncsv_dir = data_dir / \"csv\"\nplots_dir = data_dir / \"plots\"\nfor directory in [data_dir, csv_dir, plots_dir]:\n    directory.mkdir(parents=True, exist_ok=True)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -1267,7 +1299,34 @@
         "kind": 5,
         "importPath": "nxmbers.app",
         "description": "nxmbers.app",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    # Fetch data\n    socketio.emit('update', {'message': 'Starting data fetch...'})\n    fetch_data(\n        ticker=ticker,\n        start_date=start_date,\n        end_date=end_date,\n        interval=interval,\n        api_sources=api_sources,",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Create necessary directories if they don't exist\ndata_dir = PROJECT_ROOT / \"nxmbers\" / \"data\"\ncsv_dir = data_dir / \"csv\"\nplots_dir = data_dir / \"plots\"\nfor directory in [data_dir, csv_dir, plots_dir]:\n    directory.mkdir(parents=True, exist_ok=True)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    try:\n        # Fetch data",
+        "detail": "nxmbers.app",
+        "documentation": {}
+    },
+    {
+        "label": "data_dir",
+        "kind": 5,
+        "importPath": "nxmbers.app",
+        "description": "nxmbers.app",
+        "peekOfCode": "data_dir = PROJECT_ROOT / \"nxmbers\" / \"data\"\ncsv_dir = data_dir / \"csv\"\nplots_dir = data_dir / \"plots\"\nfor directory in [data_dir, csv_dir, plots_dir]:\n    directory.mkdir(parents=True, exist_ok=True)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    try:\n        # Fetch data\n        socketio.emit('update', {'message': 'Starting data fetch...'})\n        fetch_data(",
+        "detail": "nxmbers.app",
+        "documentation": {}
+    },
+    {
+        "label": "csv_dir",
+        "kind": 5,
+        "importPath": "nxmbers.app",
+        "description": "nxmbers.app",
+        "peekOfCode": "csv_dir = data_dir / \"csv\"\nplots_dir = data_dir / \"plots\"\nfor directory in [data_dir, csv_dir, plots_dir]:\n    directory.mkdir(parents=True, exist_ok=True)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    try:\n        # Fetch data\n        socketio.emit('update', {'message': 'Starting data fetch...'})\n        fetch_data(\n            ticker=ticker,",
+        "detail": "nxmbers.app",
+        "documentation": {}
+    },
+    {
+        "label": "plots_dir",
+        "kind": 5,
+        "importPath": "nxmbers.app",
+        "description": "nxmbers.app",
+        "peekOfCode": "plots_dir = data_dir / \"plots\"\nfor directory in [data_dir, csv_dir, plots_dir]:\n    directory.mkdir(parents=True, exist_ok=True)\ndef update_config_data(ticker, start_date, end_date, interval, api_sources, beam_api_key):\n    try:\n        # Fetch data\n        socketio.emit('update', {'message': 'Starting data fetch...'})\n        fetch_data(\n            ticker=ticker,\n            start_date=start_date,",
         "detail": "nxmbers.app",
         "documentation": {}
     },
@@ -1276,7 +1335,7 @@
         "kind": 5,
         "importPath": "nxmbers.config",
         "description": "nxmbers.config",
-        "peekOfCode": "db_host = \"numbermxchine.cxwoaq8ccu34.eu-west-2.rds.amazonaws.com\"\ndb_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"",
+        "peekOfCode": "db_host = \"osmx-database-osmx.g.aivencloud.com\"\ndb_name = \"nxmbers\"\ndb_user = \"avnadmin\"\ndb_password = \"AVNS_mn2Gg7v_WKqKdhOaUCz\"\ndb_port = 25719\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"",
         "detail": "nxmbers.config",
         "documentation": {}
     },
@@ -1285,7 +1344,7 @@
         "kind": 5,
         "importPath": "nxmbers.config",
         "description": "nxmbers.config",
-        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'",
+        "peekOfCode": "db_name = \"nxmbers\"\ndb_user = \"avnadmin\"\ndb_password = \"AVNS_mn2Gg7v_WKqKdhOaUCz\"\ndb_port = 25719\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'",
         "detail": "nxmbers.config",
         "documentation": {}
     },
@@ -1294,7 +1353,7 @@
         "kind": 5,
         "importPath": "nxmbers.config",
         "description": "nxmbers.config",
-        "peekOfCode": "db_user = \"mxchinist\"\ndb_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'",
+        "peekOfCode": "db_user = \"avnadmin\"\ndb_password = \"AVNS_mn2Gg7v_WKqKdhOaUCz\"\ndb_port = 25719\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'",
         "detail": "nxmbers.config",
         "documentation": {}
     },
@@ -1303,7 +1362,7 @@
         "kind": 5,
         "importPath": "nxmbers.config",
         "description": "nxmbers.config",
-        "peekOfCode": "db_password = \"foJzyn-miwhor-bavpo4\"\ndb_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'",
+        "peekOfCode": "db_password = \"AVNS_mn2Gg7v_WKqKdhOaUCz\"\ndb_port = 25719\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'",
         "detail": "nxmbers.config",
         "documentation": {}
     },
@@ -1312,7 +1371,7 @@
         "kind": 5,
         "importPath": "nxmbers.config",
         "description": "nxmbers.config",
-        "peekOfCode": "db_port = 5432\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'",
+        "peekOfCode": "db_port = 25719\nforecast_horizon = 12\n# ... other variables\n# config.py\nALPHA_VANTAGE_API_KEY = \"KXUK213E0W7JLEQV\"\nBEAM_API_KEY = \"NmJkNzkxNGQtYzUwMy00YjAzLTkyMzYtODUxMmJlYWJmY2M1\"\nDEFAULT_TICKER = 'AAPL'\nDEFAULT_START_DATE = '2000-01-01'\nDEFAULT_END_DATE = '2024-08-01'\nDEFAULT_INTERVAL = '1day'",
         "detail": "nxmbers.config",
         "documentation": {}
     },
@@ -1443,11 +1502,56 @@
         "documentation": {}
     },
     {
+        "label": "ProjectPaths",
+        "kind": 6,
+        "importPath": "nxmbers.path_utility",
+        "description": "nxmbers.path_utility",
+        "peekOfCode": "class ProjectPaths:\n    \"\"\"\n    Dataclass containing all project paths.\n    This provides easy access to all project paths as attributes.\n    \"\"\"\n    root: Path\n    data: Path\n    csv: Path\n    plots: Path\n    cleaned: Path",
+        "detail": "nxmbers.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "PathManager",
+        "kind": 6,
+        "importPath": "nxmbers.path_utility",
+        "description": "nxmbers.path_utility",
+        "peekOfCode": "class PathManager:\n    \"\"\"\n    Singleton class to manage all paths in the project.\n    Ensures consistent path handling across all modules.\n    \"\"\"\n    _instance = None\n    _paths: ProjectPaths = None\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = super(PathManager, cls).__new__(cls)",
+        "detail": "nxmbers.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_paths",
+        "kind": 2,
+        "importPath": "nxmbers.path_utility",
+        "description": "nxmbers.path_utility",
+        "peekOfCode": "def get_all_paths() -> ProjectPaths:\n    \"\"\"Get all project paths as a ProjectPaths object.\"\"\"\n    return path_manager.paths\ndef get_path(name: str) -> Path:\n    \"\"\"\n    Get a specific path by name.\n    Example:\n    >>> get_path('csv')\n    PosixPath('/path/to/nxmbers/data/csv')\n    \"\"\"",
+        "detail": "nxmbers.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_path",
+        "kind": 2,
+        "importPath": "nxmbers.path_utility",
+        "description": "nxmbers.path_utility",
+        "peekOfCode": "def get_path(name: str) -> Path:\n    \"\"\"\n    Get a specific path by name.\n    Example:\n    >>> get_path('csv')\n    PosixPath('/path/to/nxmbers/data/csv')\n    \"\"\"\n    return path_manager.get_path(name)\ndef get_file_path(directory: str, filename: str) -> Path:\n    \"\"\"",
+        "detail": "nxmbers.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_path",
+        "kind": 2,
+        "importPath": "nxmbers.path_utility",
+        "description": "nxmbers.path_utility",
+        "peekOfCode": "def get_file_path(directory: str, filename: str) -> Path:\n    \"\"\"\n    Get full path for a file within a specified directory.\n    Example:\n    >>> get_file_path('csv', 'my_data.csv')\n    PosixPath('/path/to/nxmbers/data/csv/my_data.csv')\n    \"\"\"\n    return path_manager.get_file_path(directory, filename)\n# Legacy interface functions\ndef get_project_path(file_path: str) -> Path:",
+        "detail": "nxmbers.path_utility",
+        "documentation": {}
+    },
+    {
         "label": "get_project_path",
         "kind": 2,
         "importPath": "nxmbers.path_utility",
         "description": "nxmbers.path_utility",
-        "peekOfCode": "def get_project_path(file_path):\n    \"\"\"\n    Get the project path based on the current file's location.\n    :param file_path: The __file__ variable of the current script\n    :return: Path object pointing to the project root (nxmbers folder)\n    \"\"\"\n    current_file = Path(file_path).resolve()\n    project_root = current_file.parent\n    while project_root.name != 'nxmbers':\n        project_root = project_root.parent",
+        "peekOfCode": "def get_project_path(file_path: str) -> Path:\n    \"\"\"\n    Maintain compatibility with existing code.\n    The file_path parameter is ignored but kept for compatibility.\n    Example:\n    >>> get_project_path(__file__)\n    PosixPath('/path/to/nxmbers')\n    \"\"\"\n    return path_manager.paths.root\ndef get_data_path(file_path: str, filename: str) -> Path:",
         "detail": "nxmbers.path_utility",
         "documentation": {}
     },
@@ -1456,7 +1560,16 @@
         "kind": 2,
         "importPath": "nxmbers.path_utility",
         "description": "nxmbers.path_utility",
-        "peekOfCode": "def get_data_path(file_path, filename):\n    \"\"\"\n    Get the full path for a data file within the project.\n    :param file_path: The __file__ variable of the current script\n    :param filename: Name of the file to be saved/loaded\n    :return: Full path to the data file\n    \"\"\"\n    project_root = get_project_path(file_path)\n    data_dir = project_root / 'nxmbers' / 'data'\n    data_dir.mkdir(parents=True, exist_ok=True)",
+        "peekOfCode": "def get_data_path(file_path: str, filename: str) -> Path:\n    \"\"\"\n    Maintain compatibility with existing code.\n    The file_path parameter is ignored but kept for compatibility.\n    Example:\n    >>> get_data_path(__file__, 'my_data.csv')\n    PosixPath('/path/to/nxmbers/data/my_data.csv')\n    \"\"\"\n    return path_manager.paths.data / filename\n# Example usage in doctest format",
+        "detail": "nxmbers.path_utility",
+        "documentation": {}
+    },
+    {
+        "label": "path_manager",
+        "kind": 5,
+        "importPath": "nxmbers.path_utility",
+        "description": "nxmbers.path_utility",
+        "peekOfCode": "path_manager = PathManager()\n# New interface functions\ndef get_all_paths() -> ProjectPaths:\n    \"\"\"Get all project paths as a ProjectPaths object.\"\"\"\n    return path_manager.paths\ndef get_path(name: str) -> Path:\n    \"\"\"\n    Get a specific path by name.\n    Example:\n    >>> get_path('csv')",
         "detail": "nxmbers.path_utility",
         "documentation": {}
     },
